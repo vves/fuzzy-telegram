@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LineupSync Invite</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0;padding:0;background:#fafafa;color:#18181b;display:flex;align-items:center;justify-content:center;min-height:100vh}
+  .card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.08);max-width:380px;width:90%;padding:40px 28px;text-align:center}
+  h1{font-size:22px;margin:0 0 8px}
+  p{color:#71717a;font-size:15px;margin:0 0 24px}
+  .btn{display:inline-block;background:#6366f1;color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:14px 32px;border-radius:12px}
+  .btn:active{opacity:.85}
+  .hint{font-size:13px;color:#a1a1aa;margin-top:20px}
+  .error{color:#dc2626}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1 id="heading">Loading invite&hellip;</h1>
+  <p id="subtitle"></p>
+  <a id="open" class="btn" href="#" style="display:none">Open in LineupSync</a>
+  <p id="hint" class="hint" style="display:none">If the app doesn&rsquo;t open, make sure LineupSync is installed.</p>
+</div>
+<script>
+(function(){
+  var params=new URLSearchParams(location.search);
+  var id=params.get("id");
+  var ensemble=params.get("ensemble")||"an ensemble";
+  if(!id){
+    document.getElementById("heading").textContent="Invalid invite link";
+    document.getElementById("heading").className="error";
+    return;
+  }
+  var appUrl="lineup-sync://invites/"+encodeURIComponent(id);
+  document.getElementById("heading").innerHTML="You\u2019re invited to "+ensemble.replace(/</g,"&lt;");
+  document.getElementById("subtitle").textContent="Tap the button below to open this invite in LineupSync.";
+  var btn=document.getElementById("open");
+  btn.href=appUrl;
+  btn.style.display="inline-block";
+  document.getElementById("hint").style.display="";
+  setTimeout(function(){location.href=appUrl;},400);
+})();
+</script>
+</body>
+</html>
