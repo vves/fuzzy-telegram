@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LineupSync Privacy Policy</title>
+		<meta
+			name="description"
+			content="Privacy Policy for the LineupSync iOS and Android apps and related invite pages operated by Cello Hill."
+		/>
+		<style>
+			:root {
+				color-scheme: light dark;
+				--bg: #f5f7fb;
+				--bg-accent: #e8edf7;
+				--surface: #ffffff;
+				--surface-strong: #f2f6fd;
+				--text: #172031;
+				--muted: #5e697b;
+				--line: #dbe3f0;
+				--brand: #1f8a70;
+				--brand-strong: #166a56;
+				--accent: #274c9a;
+				--ring: rgba(31, 138, 112, 0.26);
+				--shadow: 0 18px 40px rgba(24, 37, 66, 0.08);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--bg: #0d111a;
+					--bg-accent: #141b2a;
+					--surface: #131a28;
+					--surface-strong: #1a2335;
+					--text: #eaf0ff;
+					--muted: #aab5cc;
+					--line: #273149;
+					--brand: #3bc29f;
+					--brand-strong: #2fa485;
+					--accent: #84a8ff;
+					--ring: rgba(59, 194, 159, 0.3);
+					--shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+				}
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+				background:
+					radial-gradient(circle at 90% -15%, rgba(31, 138, 112, 0.18) 0, transparent 42%),
+					radial-gradient(circle at 0% 100%, rgba(90, 127, 196, 0.16) 0, transparent 48%),
+					linear-gradient(160deg, var(--bg) 0%, var(--bg-accent) 100%);
+				color: var(--text);
+				line-height: 1.6;
+				min-height: 100vh;
+			}
+
+			a {
+				color: inherit;
+			}
+
+			.container {
+				width: min(1080px, 92vw);
+				margin: 0 auto;
+			}
+
+			.topbar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem;
+				padding: 1rem 0;
+			}
+
+			.brand {
+				font-weight: 700;
+				letter-spacing: 0.02em;
+				text-decoration: none;
+			}
+
+			.pill {
+				border: 1px solid var(--line);
+				border-radius: 999px;
+				padding: 0.4rem 0.75rem;
+				font-size: 0.8rem;
+				color: var(--muted);
+				background: color-mix(in srgb, var(--surface) 88%, transparent);
+			}
+
+			.hero {
+				display: grid;
+				grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+				gap: 1.5rem;
+				padding: 2rem 0 1.2rem;
+			}
+
+			.hero-card,
+			.panel,
+			.summary-card {
+				background: color-mix(in srgb, var(--surface) 90%, transparent);
+				border: 1px solid var(--line);
+				border-radius: 18px;
+				box-shadow: var(--shadow);
+			}
+
+			.hero-main {
+				padding: 1.5rem;
+			}
+
+			.eyebrow {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 0.38rem 0.72rem;
+				border-radius: 999px;
+				background: color-mix(in srgb, var(--brand) 12%, var(--surface));
+				color: var(--brand-strong);
+				font-size: 0.82rem;
+				font-weight: 700;
+				letter-spacing: 0.03em;
+				text-transform: uppercase;
+			}
+
+			.hero h1 {
+				margin: 0.95rem 0 0;
+				font-size: clamp(2rem, 4.6vw, 3.35rem);
+				line-height: 1.05;
+			}
+
+			.subhead {
+				margin: 1rem 0 1.2rem;
+				max-width: 62ch;
+				color: var(--muted);
+			}
+
+			.meta-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.7rem;
+			}
+
+			.meta-chip {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+				border-radius: 999px;
+				border: 1px solid var(--line);
+				padding: 0.5rem 0.75rem;
+				font-size: 0.9rem;
+				color: var(--muted);
+				background: color-mix(in srgb, var(--surface) 92%, transparent);
+			}
+
+			.hero-side {
+				padding: 1.15rem;
+				display: grid;
+				gap: 0.8rem;
+			}
+
+			.summary-card {
+				padding: 0.9rem 1rem;
+				background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+			}
+
+			.summary-card strong {
+				display: block;
+				margin-bottom: 0.2rem;
+			}
+
+			.summary-card p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.94rem;
+			}
+
+			.quick-nav {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.7rem;
+				padding: 0.8rem 0 1.3rem;
+			}
+
+			.quick-nav a {
+				text-decoration: none;
+				padding: 0.62rem 0.84rem;
+				border-radius: 12px;
+				border: 1px solid var(--line);
+				background: color-mix(in srgb, var(--surface) 92%, transparent);
+				color: var(--text);
+				font-weight: 600;
+			}
+
+			.quick-nav a:hover,
+			.quick-nav a:focus-visible {
+				outline: none;
+				border-color: var(--brand);
+				box-shadow: 0 0 0 4px var(--ring);
+			}
+
+			.section-grid {
+				display: grid;
+				gap: 1rem;
+				padding-bottom: 2rem;
+			}
+
+			.panel {
+				padding: 1.2rem;
+			}
+
+			.panel h2 {
+				margin: 0 0 0.85rem;
+				font-size: 1.4rem;
+			}
+
+			.panel h3 {
+				margin: 1rem 0 0.35rem;
+				font-size: 1rem;
+			}
+
+			.panel p,
+			.panel li {
+				color: var(--muted);
+			}
+
+			.panel ul {
+				margin: 0.35rem 0 0;
+				padding-left: 1.2rem;
+			}
+
+			.highlight-grid {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 0.8rem;
+				margin-top: 0.85rem;
+			}
+
+			.highlight {
+				padding: 0.85rem 0.95rem;
+				border-radius: 14px;
+				border: 1px solid var(--line);
+				background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
+			}
+
+			.highlight strong {
+				display: block;
+				margin-bottom: 0.2rem;
+			}
+
+			.note {
+				margin-top: 0.9rem;
+				padding: 0.9rem 1rem;
+				border-left: 4px solid var(--brand);
+				border-radius: 12px;
+				background: color-mix(in srgb, var(--brand) 10%, var(--surface));
+				color: var(--muted);
+			}
+
+			.contact-card {
+				display: grid;
+				gap: 0.7rem;
+			}
+
+			.contact-card a {
+				color: var(--accent);
+				font-weight: 700;
+				text-decoration: none;
+			}
+
+			.contact-card a:hover,
+			.contact-card a:focus-visible {
+				text-decoration: underline;
+			}
+
+			footer {
+				padding: 0 0 2rem;
+				color: var(--muted);
+				font-size: 0.88rem;
+			}
+
+			@media (max-width: 900px) {
+				.hero,
+				.highlight-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			@media (max-width: 620px) {
+				.topbar {
+					align-items: flex-start;
+					flex-direction: column;
+				}
+
+				.hero-main,
+				.panel,
+				.hero-side {
+					padding: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="topbar">
+				<a class="brand" href="./index.html">Cello Hill</a>
+				<div class="pill">LineupSync Privacy Policy</div>
+			</header>
+
+			<main>
+				<section class="hero">
+					<div class="hero-card hero-main">
+						<div class="eyebrow">iOS + Android</div>
+						<h1>Privacy policy for the LineupSync app and related invite pages.</h1>
+						<p class="subhead">
+							LineupSync is an online ensemble-planning app operated by Cello Hill.
+							This policy explains what information we collect, how we use it, when
+							we share it, and the choices you have when using LineupSync on mobile
+							or opening a related invite link on the web.
+						</p>
+						<div class="meta-row">
+							<div class="meta-chip">Last updated: May 17, 2026</div>
+							<div class="meta-chip">No in-app ads</div>
+							<div class="meta-chip">No sale of personal data</div>
+						</div>
+					</div>
+
+					<aside class="hero-side hero-card" aria-label="Privacy summary">
+						<div class="summary-card">
+							<strong>Account-based service</strong>
+							<p>
+								LineupSync requires an account and stores the ensemble planning data you
+								create so your group can collaborate.
+							</p>
+						</div>
+						<div class="summary-card">
+							<strong>Optional device permissions</strong>
+							<p>
+								Notifications and calendar access are optional and used only for app
+								features you choose to enable.
+							</p>
+						</div>
+						<div class="summary-card">
+							<strong>Collaboration means visibility</strong>
+							<p>
+								Other active members of your ensemble can see the planning information
+								needed to coordinate sessions.
+							</p>
+						</div>
+					</aside>
+				</section>
+
+				<nav class="quick-nav" aria-label="Section navigation">
+					<a href="#collect">What We Collect</a>
+					<a href="#use">How We Use It</a>
+					<a href="#share">How We Share It</a>
+					<a href="#choices">Your Choices</a>
+					<a href="#contact">Contact</a>
+				</nav>
+
+				<div class="section-grid">
+					<section class="panel" id="collect">
+						<h2>What We Collect</h2>
+						<p>
+							We collect the information needed to run LineupSync as a collaborative
+							planning service for ensembles, bands, and similar groups.
+						</p>
+						<div class="highlight-grid">
+							<div class="highlight">
+								<strong>Account and profile information</strong>
+								<p>
+									This may include your email address, display name, instrument,
+									proficiency details, and other profile information you choose to add.
+									Authentication credentials are handled through our auth provider; we do
+									not store your password in plaintext.
+								</p>
+							</div>
+							<div class="highlight">
+								<strong>Ensemble and planning data</strong>
+								<p>
+									We store ensemble membership, positions, assignments, availability,
+									session titles, dates, times, locations, RSVP responses, and related
+									planning activity created in the app.
+								</p>
+							</div>
+							<div class="highlight">
+								<strong>Invite information</strong>
+								<p>
+									Coordinators can invite members by email. We store invite email
+									addresses, invite status, expiration details, and related ensemble
+									metadata needed to process those invitations.
+								</p>
+							</div>
+							<div class="highlight">
+								<strong>Device and operational data</strong>
+								<p>
+									We may process your mobile platform, app version, push notification
+									token, and basic service logs such as request IDs, user agent,
+									requested routes, and timing data for security and troubleshooting.
+								</p>
+							</div>
+						</div>
+
+						<h3>Information stored on your device</h3>
+						<ul>
+							<li>Pending invite handoff information so the app can finish an invite flow after sign-in.</li>
+							<li>Your preferred calendar selection when you choose where LineupSync should add events.</li>
+							<li>Appearance preferences such as your chosen light, dark, or system theme.</li>
+						</ul>
+
+						<h3>Optional permissions</h3>
+						<ul>
+							<li>Calendar access lets you add LineupSync sessions to your device calendar.</li>
+							<li>Push notification permission lets us send session and availability updates to your device.</li>
+						</ul>
+
+						<div class="note">
+							We do not use in-app advertising SDKs, and we do not knowingly use cross-app
+							tracking for advertising within LineupSync.
+						</div>
+					</section>
+
+					<section class="panel" id="use">
+						<h2>How We Use Information</h2>
+						<ul>
+							<li>To create and secure your account and sign you into LineupSync.</li>
+							<li>To let ensembles manage members, roles, positions, availability, and sessions.</li>
+							<li>To deliver invite links, accept invitations, and connect members to the right ensemble.</li>
+							<li>To send optional push notifications about planning activity such as proposed or confirmed sessions.</li>
+							<li>To let you add sessions to your device calendar when you request that feature.</li>
+							<li>To maintain the service, investigate issues, prevent abuse, and comply with legal obligations.</li>
+						</ul>
+
+						<h3>How collaboration affects visibility</h3>
+						<p>
+							LineupSync is built for shared planning. If you are an active member of an
+							ensemble, other active members in that ensemble may be able to see the
+							planning data needed to coordinate, including your name, role,
+							assignments, availability, and session participation.
+						</p>
+					</section>
+
+					<section class="panel" id="share">
+						<h2>How We Share Information</h2>
+						<p>
+							We share information only when needed to operate LineupSync or when we are
+							required to do so.
+						</p>
+						<ul>
+							<li>With other members of your ensemble, as described above, so collaborative planning works.</li>
+							<li>With infrastructure and service providers that help us run authentication, hosting, databases, storage, and notifications.</li>
+							<li>With Apple, Google, and related delivery services when notifications, app distribution, or platform features require it.</li>
+							<li>When required by law, regulation, legal process, or to protect the rights, safety, and security of users or the service.</li>
+							<li>As part of a business reorganization, merger, sale, or asset transfer if LineupSync changes ownership.</li>
+						</ul>
+
+						<div class="note">
+							We do not sell your personal information. We also do not share personal
+							information with third parties for their own targeted advertising purposes.
+						</div>
+					</section>
+
+					<section class="panel" id="choices">
+						<h2>Your Choices and Rights</h2>
+						<ul>
+							<li>You can update much of your profile, availability, and planning data inside the app.</li>
+							<li>You can disable push notifications at any time in your iOS or Android settings.</li>
+							<li>You can revoke calendar access in your device settings if you no longer want LineupSync to create calendar events.</li>
+							<li>You can sign out of the app, and you can contact us if you want to request deletion of your account or related data.</li>
+						</ul>
+
+						<h3>Data retention</h3>
+						<p>
+							We keep account and planning information for as long as needed to operate
+							the service, maintain group history, resolve disputes, enforce our terms,
+							and comply with legal obligations. When information is no longer needed,
+							we will delete it or de-identify it where reasonably practical.
+						</p>
+
+						<h3>Children</h3>
+						<p>
+							LineupSync is not directed to children under 13, and we do not knowingly
+							collect personal information from children under 13.
+						</p>
+
+						<h3>Security</h3>
+						<p>
+							We use reasonable technical and organizational measures designed to protect
+							personal information. No method of transmission or storage is perfectly
+							secure, so we cannot guarantee absolute security.
+						</p>
+
+						<h3>Changes to this policy</h3>
+						<p>
+							We may update this policy from time to time. If we make material changes,
+							we will update the date at the top of this page and may provide additional
+							notice where appropriate.
+						</p>
+					</section>
+
+					<section class="panel contact-card" id="contact">
+						<h2>Contact Us</h2>
+						<p>
+							If you have questions about this policy, want to request account or data
+							deletion, or need help with a privacy issue related to LineupSync, contact:
+						</p>
+						<p><a href="mailto:website@cellohill.com">website@cellohill.com</a></p>
+						<p>
+							Please include enough detail for us to identify your request, such as the
+							email address associated with your LineupSync account.
+						</p>
+					</section>
+				</div>
+			</main>
+
+			<footer>
+				<div>(c) <span id="year"></span> Cello Hill. LineupSync privacy policy.</div>
+			</footer>
+		</div>
+
+		<script>
+			const yearEl = document.getElementById("year");
+			if (yearEl) {
+				yearEl.textContent = String(new Date().getFullYear());
+			}
+		</script>
+	</body>
+</html>

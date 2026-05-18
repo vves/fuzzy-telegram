@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LineupSync Delete My Info</title>
+		<meta
+			name="description"
+			content="How to request deletion of your LineupSync account and related personal data."
+		/>
+		<style>
+			:root {
+				color-scheme: light dark;
+				--bg: #f5f7fb;
+				--bg-accent: #e8edf7;
+				--surface: #ffffff;
+				--surface-strong: #f2f6fd;
+				--text: #172031;
+				--muted: #5e697b;
+				--line: #dbe3f0;
+				--brand: #1f8a70;
+				--brand-strong: #166a56;
+				--accent: #274c9a;
+				--warning: #b45309;
+				--ring: rgba(31, 138, 112, 0.26);
+				--shadow: 0 18px 40px rgba(24, 37, 66, 0.08);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--bg: #0d111a;
+					--bg-accent: #141b2a;
+					--surface: #131a28;
+					--surface-strong: #1a2335;
+					--text: #eaf0ff;
+					--muted: #aab5cc;
+					--line: #273149;
+					--brand: #3bc29f;
+					--brand-strong: #2fa485;
+					--accent: #84a8ff;
+					--warning: #f4b76d;
+					--ring: rgba(59, 194, 159, 0.3);
+					--shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+				}
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+				background:
+					radial-gradient(circle at 90% -15%, rgba(31, 138, 112, 0.18) 0, transparent 42%),
+					radial-gradient(circle at 0% 100%, rgba(90, 127, 196, 0.16) 0, transparent 48%),
+					linear-gradient(160deg, var(--bg) 0%, var(--bg-accent) 100%);
+				color: var(--text);
+				line-height: 1.6;
+				min-height: 100vh;
+			}
+
+			a {
+				color: inherit;
+			}
+
+			.container {
+				width: min(1080px, 92vw);
+				margin: 0 auto;
+			}
+
+			.topbar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem;
+				padding: 1rem 0;
+			}
+
+			.brand {
+				font-weight: 700;
+				letter-spacing: 0.02em;
+				text-decoration: none;
+			}
+
+			.pill {
+				border: 1px solid var(--line);
+				border-radius: 999px;
+				padding: 0.4rem 0.75rem;
+				font-size: 0.8rem;
+				color: var(--muted);
+				background: color-mix(in srgb, var(--surface) 88%, transparent);
+			}
+
+			.hero {
+				display: grid;
+				grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+				gap: 1.5rem;
+				padding: 2rem 0 1.2rem;
+			}
+
+			.hero-card,
+			.panel,
+			.summary-card {
+				background: color-mix(in srgb, var(--surface) 90%, transparent);
+				border: 1px solid var(--line);
+				border-radius: 18px;
+				box-shadow: var(--shadow);
+			}
+
+			.hero-main {
+				padding: 1.5rem;
+			}
+
+			.eyebrow {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 0.38rem 0.72rem;
+				border-radius: 999px;
+				background: color-mix(in srgb, var(--brand) 12%, var(--surface));
+				color: var(--brand-strong);
+				font-size: 0.82rem;
+				font-weight: 700;
+				letter-spacing: 0.03em;
+				text-transform: uppercase;
+			}
+
+			.hero h1 {
+				margin: 0.95rem 0 0;
+				font-size: clamp(2rem, 4.6vw, 3.2rem);
+				line-height: 1.05;
+			}
+
+			.subhead {
+				margin: 1rem 0 1.2rem;
+				max-width: 62ch;
+				color: var(--muted);
+			}
+
+			.meta-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.7rem;
+			}
+
+			.meta-chip {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+				border-radius: 999px;
+				border: 1px solid var(--line);
+				padding: 0.5rem 0.75rem;
+				font-size: 0.9rem;
+				color: var(--muted);
+				background: color-mix(in srgb, var(--surface) 92%, transparent);
+			}
+
+			.hero-side {
+				padding: 1.15rem;
+				display: grid;
+				gap: 0.8rem;
+			}
+
+			.summary-card {
+				padding: 0.9rem 1rem;
+				background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+			}
+
+			.summary-card strong {
+				display: block;
+				margin-bottom: 0.2rem;
+			}
+
+			.summary-card p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.94rem;
+			}
+
+			.quick-nav {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.7rem;
+				padding: 0.8rem 0 1.3rem;
+			}
+
+			.quick-nav a {
+				text-decoration: none;
+				padding: 0.62rem 0.84rem;
+				border-radius: 12px;
+				border: 1px solid var(--line);
+				background: color-mix(in srgb, var(--surface) 92%, transparent);
+				color: var(--text);
+				font-weight: 600;
+			}
+
+			.quick-nav a:hover,
+			.quick-nav a:focus-visible,
+			.button:hover,
+			.button:focus-visible {
+				outline: none;
+				border-color: var(--brand);
+				box-shadow: 0 0 0 4px var(--ring);
+			}
+
+			.section-grid {
+				display: grid;
+				gap: 1rem;
+				padding-bottom: 2rem;
+			}
+
+			.panel {
+				padding: 1.2rem;
+			}
+
+			.panel h2 {
+				margin: 0 0 0.85rem;
+				font-size: 1.4rem;
+			}
+
+			.panel h3 {
+				margin-bottom: 0.55rem;
+				font-size: 1rem;
+			}
+
+			.panel p,
+			.panel li {
+				color: var(--muted);
+			}
+
+			.panel ul,
+			.panel ol {
+				margin: 0.4rem 0 0;
+				padding-left: 1.2rem;
+			}
+
+			.panel li + li {
+				margin-top: 0.45rem;
+			}
+
+			.button-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+				margin-top: 1rem;
+			}
+
+			.button {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.82rem 1rem;
+				border-radius: 12px;
+				font-weight: 700;
+				text-decoration: none;
+				border: 1px solid transparent;
+			}
+
+			.button-primary {
+				background: var(--brand);
+				color: #ffffff;
+			}
+
+			.button-primary:hover {
+				background: var(--brand-strong);
+			}
+
+			.button-secondary {
+				border-color: var(--line);
+				background: color-mix(in srgb, var(--surface) 92%, transparent);
+				color: var(--text);
+			}
+
+			.highlight-grid {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 0.9rem;
+				margin-top: 1rem;
+			}
+
+			.highlight {
+				padding: 1rem;
+				border-radius: 14px;
+				border: 1px solid var(--line);
+				background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
+			}
+
+			.highlight strong {
+				display: block;
+				margin-bottom: 0.35rem;
+			}
+
+			.highlight p {
+				margin: 0;
+			}
+
+			.note {
+				margin-top: 1rem;
+				padding: 0.9rem 1rem;
+				border-radius: 14px;
+				border: 1px solid color-mix(in srgb, var(--warning) 28%, var(--line));
+				background: color-mix(in srgb, var(--warning) 10%, var(--surface));
+				color: var(--text);
+			}
+
+			.contact-card a {
+				color: var(--accent);
+				font-weight: 700;
+				text-decoration-thickness: 0.08em;
+			}
+
+			footer {
+				padding: 0 0 2rem;
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+
+			@media (max-width: 900px) {
+				.hero,
+				.highlight-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			@media (max-width: 620px) {
+				.topbar {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+
+				.hero-main,
+				.panel,
+				.hero-side {
+					padding: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="topbar">
+				<a class="brand" href="./index.html">Cello Hill</a>
+				<div class="pill">LineupSync Delete My Info</div>
+			</header>
+
+			<main>
+				<section class="hero">
+					<div class="hero-card hero-main">
+						<div class="eyebrow">Google Play + App Store</div>
+						<h1>Request deletion of your LineupSync account and related personal data.</h1>
+						<p class="subhead">
+							LineupSync does not yet offer in-app self-service deletion. If you want us to
+							delete your account or related personal information, send a deletion request to
+							our support contact and include the email address associated with your
+							LineupSync account.
+						</p>
+						<div class="meta-row">
+							<div class="meta-chip">Last updated: May 17, 2026</div>
+							<div class="meta-chip">Request path: email</div>
+							<div class="meta-chip">Operator: Cello Hill</div>
+						</div>
+						<div class="button-row">
+							<a
+								class="button button-primary"
+								href="mailto:website@cellohill.com?subject=LineupSync%20Deletion%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20deletion%20of%20my%20LineupSync%20account%20and%20related%20personal%20data.%0A%0AAccount%20email%3A%20%0ADisplay%20name%20(optional)%3A%20%0AAdditional%20details%20(optional)%3A%20%0A"
+							>
+								Email deletion request
+							</a>
+							<a class="button button-secondary" href="./privacy.html">Read privacy policy</a>
+						</div>
+					</div>
+
+					<aside class="hero-side hero-card" aria-label="Deletion summary">
+						<div class="summary-card">
+							<strong>Best way to verify your request</strong>
+							<p>
+								Email us from the address connected to your LineupSync account whenever
+								possible.
+							</p>
+						</div>
+						<div class="summary-card">
+							<strong>What to include</strong>
+							<p>
+								Include your account email and enough detail for us to identify the right
+								profile.
+							</p>
+						</div>
+						<div class="summary-card">
+							<strong>What happens next</strong>
+							<p>
+								We review the request, verify it where needed, and delete or de-identify data
+								where reasonably practical.
+							</p>
+						</div>
+					</aside>
+				</section>
+
+				<nav class="quick-nav" aria-label="Section navigation">
+					<a href="#request">How to Request</a>
+					<a href="#include">What to Include</a>
+					<a href="#delete">What We Delete</a>
+					<a href="#retain">What We May Retain</a>
+					<a href="#contact">Contact</a>
+				</nav>
+
+				<div class="section-grid">
+					<section class="panel" id="request">
+						<h2>How to Request Deletion</h2>
+						<ol>
+							<li>Email <a href="mailto:website@cellohill.com">website@cellohill.com</a>.</li>
+							<li>Use a subject like <strong>LineupSync Deletion Request</strong>.</li>
+							<li>Tell us you want your LineupSync account and related personal data deleted.</li>
+							<li>Include the email address associated with your account.</li>
+						</ol>
+						<div class="note">
+							This page is provided as the public deletion-request path for the LineupSync
+							Android listing. If you cannot email from your account address, include enough
+							detail for us to verify ownership before we act.
+						</div>
+					</section>
+
+					<section class="panel" id="include">
+						<h2>What to Include in Your Request</h2>
+						<div class="highlight-grid">
+							<div class="highlight">
+								<strong>Required</strong>
+								<p>
+									The email address associated with your LineupSync account, or enough
+									information for us to locate it.
+								</p>
+							</div>
+							<div class="highlight">
+								<strong>Helpful</strong>
+								<p>
+									Your display name, ensemble name, and whether you want full account deletion or
+									help with a narrower privacy request.
+								</p>
+							</div>
+						</div>
+						<p>
+							If we need more information to verify the request, we may reply before deleting
+							data.
+						</p>
+					</section>
+
+					<section class="panel" id="delete">
+						<h2>What We Aim to Delete</h2>
+						<ul>
+							<li>Your LineupSync account profile information associated with the request.</li>
+							<li>Your availability defaults, personal preferences, and app-linked device tokens where applicable.</li>
+							<li>Your access to ensembles and related membership records that are tied to your account.</li>
+							<li>Other personal data that we control for operating LineupSync, where deletion is reasonably practical.</li>
+						</ul>
+					</section>
+
+					<section class="panel" id="retain">
+						<h2>What We May Retain</h2>
+						<p>
+							In some situations, we may keep limited information after a deletion request.
+						</p>
+						<ul>
+							<li>Records we are required to keep for legal, security, fraud-prevention, or compliance reasons.</li>
+							<li>Minimal records needed to resolve disputes or protect the service and other users.</li>
+							<li>Information that has been de-identified so it no longer reasonably identifies you.</li>
+						</ul>
+						<p>
+							Where complete deletion is not practical, we will aim to de-identify retained data
+							where reasonably possible.
+						</p>
+					</section>
+
+					<section class="panel contact-card" id="contact">
+						<h2>Contact</h2>
+						<p>
+							For LineupSync deletion requests or related privacy questions, contact:
+						</p>
+						<p><a href="mailto:website@cellohill.com">website@cellohill.com</a></p>
+						<p>
+							If you already sent a request, you can reply to the same thread with any extra
+							details needed to identify your account.
+						</p>
+					</section>
+				</div>
+			</main>
+
+			<footer>
+				<div>(c) <span id="year"></span> Cello Hill. LineupSync deletion requests.</div>
+			</footer>
+		</div>
+
+		<script>
+			const yearEl = document.getElementById("year");
+			if (yearEl) {
+				yearEl.textContent = String(new Date().getFullYear());
+			}
+		</script>
+	</body>
+</html>

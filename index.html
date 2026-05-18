@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cello Hill | Creating Since 1994</title>
+		<meta
+			name="description"
+			content="Cello Hill builds modern recording experiences and practical high-tech systems, from studio production to home automation, BLE patents, and software development."
+		/>
+		<style>
+			:root {
+				color-scheme: light dark;
+				--bg: #f5f7fb;
+				--bg-accent: #e8edf7;
+				--surface: #ffffff;
+				--text: #172031;
+				--muted: #5e697b;
+				--line: #dbe3f0;
+				--brand: #1f8a70;
+				--brand-strong: #166a56;
+				--ring: rgba(31, 138, 112, 0.26);
+				--shadow: 0 18px 40px rgba(24, 37, 66, 0.08);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--bg: #0d111a;
+					--bg-accent: #141b2a;
+					--surface: #131a28;
+					--text: #eaf0ff;
+					--muted: #aab5cc;
+					--line: #273149;
+					--brand: #3bc29f;
+					--brand-strong: #2fa485;
+					--ring: rgba(59, 194, 159, 0.3);
+					--shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+				}
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+				background:
+					radial-gradient(circle at 85% -10%, rgba(31, 138, 112, 0.18) 0, transparent 45%),
+					radial-gradient(circle at 0% 100%, rgba(90, 127, 196, 0.18) 0, transparent 50%),
+					linear-gradient(160deg, var(--bg) 0%, var(--bg-accent) 100%);
+				color: var(--text);
+				line-height: 1.5;
+				min-height: 100vh;
+			}
+
+			.container {
+				width: min(1080px, 92vw);
+				margin: 0 auto;
+			}
+
+			.topbar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 1rem 0;
+			}
+
+			.brand {
+				font-weight: 700;
+				letter-spacing: 0.02em;
+			}
+
+			.pill {
+				border: 1px solid var(--line);
+				border-radius: 999px;
+				padding: 0.4rem 0.75rem;
+				font-size: 0.8rem;
+				color: var(--muted);
+				background: color-mix(in srgb, var(--surface) 88%, transparent);
+			}
+
+			.hero {
+				display: grid;
+				grid-template-columns: 1.2fr 1fr;
+				gap: 2rem;
+				padding: 2.2rem 0 1.4rem;
+			}
+
+			.hero h1 {
+				margin: 0;
+				font-size: clamp(2rem, 5vw, 3.5rem);
+				line-height: 1.08;
+			}
+
+			.subhead {
+				margin: 1.1rem 0 1.6rem;
+				color: var(--muted);
+				max-width: 62ch;
+			}
+
+			.cta-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.7rem;
+			}
+
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				border: 0;
+				border-radius: 12px;
+				padding: 0.78rem 1rem;
+				font-weight: 600;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+			.btn-primary {
+				background: var(--brand);
+				color: #fff;
+			}
+
+			.btn-primary:hover {
+				background: var(--brand-strong);
+			}
+
+			.btn-secondary {
+				background: transparent;
+				border: 1px solid var(--line);
+				color: var(--text);
+			}
+
+			.card {
+				background: color-mix(in srgb, var(--surface) 90%, transparent);
+				border: 1px solid var(--line);
+				border-radius: 16px;
+				box-shadow: var(--shadow);
+			}
+
+			.hero-card {
+				padding: 1.1rem;
+			}
+
+			.hero-card h3 {
+				margin: 0.2rem 0 0.65rem;
+			}
+
+			.feature-list {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				display: grid;
+				gap: 0.6rem;
+			}
+
+			.feature-list li {
+				border: 1px solid var(--line);
+				border-radius: 10px;
+				padding: 0.6rem 0.7rem;
+			}
+
+			.section {
+				padding: 1.4rem 0;
+			}
+
+			.grid-2 {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1rem;
+			}
+
+			.panel {
+				padding: 1rem;
+			}
+
+			.panel h3 {
+				margin-top: 0.2rem;
+				margin-bottom: 0.5rem;
+			}
+
+			.panel p,
+			.panel li {
+				color: var(--muted);
+			}
+
+			.contact {
+				padding: 1.1rem;
+			}
+
+			.form-row {
+				display: grid;
+				gap: 0.8rem;
+			}
+
+			label {
+				font-size: 0.92rem;
+				font-weight: 600;
+			}
+
+			input,
+			textarea {
+				margin-top: 0.3rem;
+				width: 100%;
+				border-radius: 10px;
+				border: 1px solid var(--line);
+				background: color-mix(in srgb, var(--surface) 94%, transparent);
+				color: var(--text);
+				padding: 0.65rem 0.7rem;
+				font: inherit;
+			}
+
+			input:focus,
+			textarea:focus {
+				outline: 2px solid var(--ring);
+				border-color: var(--brand);
+			}
+
+			textarea {
+				min-height: 120px;
+				resize: vertical;
+			}
+
+			.muted {
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+
+			footer {
+				padding: 1.4rem 0 2rem;
+				color: var(--muted);
+				font-size: 0.88rem;
+			}
+
+			@media (max-width: 860px) {
+				.hero,
+				.grid-2 {
+					grid-template-columns: 1fr;
+				}
+
+				.hero {
+					padding-top: 1.4rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="topbar">
+				<div class="brand">Cello Hill</div>
+				<div class="pill">Creating Since 1994</div>
+			</header>
+
+			<section class="hero" id="top">
+				<div>
+					<h1>Studio-first creativity with practical high-tech engineering.</h1>
+					<p class="subhead">
+						Cello Hill blends modern recording craft with product-minded technology:
+						studio production, home automation, BLE innovation, and software development.
+					</p>
+					<div class="cta-row">
+						<a class="btn btn-primary" href="#contact">Contact Us</a>
+						<a class="btn btn-secondary" href="#about">About</a>
+					</div>
+				</div>
+
+				<aside class="card hero-card">
+					<h3>What we do</h3>
+					<ul class="feature-list">
+						<li><strong>Recording Studio</strong><br />Production, capture, editing, and release-ready sound.</li>
+						<li><strong>Home Automation</strong><br />Reliable high-tech systems for real-world use.</li>
+						<li><strong>BLE + Software</strong><br />Patent-backed innovation and custom software delivery.</li>
+					</ul>
+				</aside>
+			</section>
+
+			<section class="section" id="about">
+				<div class="grid-2">
+					<article class="card panel">
+						<h3>About Cello Hill</h3>
+						<p>
+							Cello Hill is a dual-headed company built on long-term creative output and
+							technical execution. Our primary lane is recording studio work; our secondary
+							lane is advanced home and device technology.
+						</p>
+						<p>
+							We focus on practical outcomes: clean audio, stable systems, and software that
+							solves specific problems without unnecessary complexity.
+						</p>
+					</article>
+
+					<article class="card panel">
+						<h3>Capabilities</h3>
+						<ul>
+							<li>Recording, editing, and post-production support</li>
+							<li>High-tech home automation architecture and integration</li>
+							<li>BLE prototyping and patent-aware product development</li>
+							<li>Custom software for workflow and control systems</li>
+						</ul>
+					</article>
+				</div>
+			</section>
+
+			<section class="section" id="contact">
+				<form class="card contact" id="contactForm">
+					<h3>Contact Us</h3>
+					<p class="muted">Share your project scope and we will follow up.</p>
+					<div class="form-row">
+						<label>
+							Name
+							<input name="name" required />
+						</label>
+						<label>
+							Email
+							<input type="email" name="email" required />
+						</label>
+						<label>
+							Message
+							<textarea name="message" required></textarea>
+						</label>
+						<button class="btn btn-primary" type="submit">Send Email</button>
+						<p class="muted">Or email directly: website@cellohill.com</p>
+					</div>
+				</form>
+			</section>
+
+			<footer>
+				<div>© <span id="year"></span> Cello Hill. All rights reserved.</div>
+			</footer>
+		</div>
+
+		<script>
+			const yearEl = document.getElementById("year");
+			yearEl.textContent = String(new Date().getFullYear());
+
+			const form = document.getElementById("contactForm");
+			form.addEventListener("submit", (event) => {
+				event.preventDefault();
+
+				const data = new FormData(form);
+				const name = String(data.get("name") || "").trim();
+				const email = String(data.get("email") || "").trim();
+				const message = String(data.get("message") || "").trim();
+
+				const subject = encodeURIComponent("Cello Hill Inquiry");
+				const body = encodeURIComponent(
+					`Name: ${name}\nEmail: ${email}\n\nProject Details:\n${message}`,
+				);
+				window.location.href = `mailto:website@cellohill.com?subject=${subject}&body=${body}`;
+			});
+		</script>
+	</body>
+</html>
