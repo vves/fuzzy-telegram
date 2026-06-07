@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TakeLight Privacy Policy</title>
+		<meta
+			name="description"
+			content="Privacy Policy for the TakeLight macOS app operated by Cello Hill."
+		/>
+		<style>
+			:root {
+				color-scheme: light dark;
+				--bg: #f5f7fb;
+				--bg-accent: #e8edf7;
+				--surface: #ffffff;
+				--surface-strong: #f2f6fd;
+				--text: #172031;
+				--muted: #5e697b;
+				--line: #dbe3f0;
+				--brand: #1f8a70;
+				--brand-strong: #166a56;
+				--accent: #274c9a;
+				--ring: rgba(31, 138, 112, 0.26);
+				--shadow: 0 18px 40px rgba(24, 37, 66, 0.08);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--bg: #0d111a;
+					--bg-accent: #141b2a;
+					--surface: #131a28;
+					--surface-strong: #1a2335;
+					--text: #eaf0ff;
+					--muted: #aab5cc;
+					--line: #273149;
+					--brand: #3bc29f;
+					--brand-strong: #2fa485;
+					--accent: #84a8ff;
+					--ring: rgba(59, 194, 159, 0.3);
+					--shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+				}
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+				background:
+					radial-gradient(circle at 90% -15%, rgba(31, 138, 112, 0.18) 0, transparent 42%),
+					radial-gradient(circle at 0% 100%, rgba(90, 127, 196, 0.16) 0, transparent 48%),
+					linear-gradient(160deg, var(--bg) 0%, var(--bg-accent) 100%);
+				color: var(--text);
+				line-height: 1.6;
+				min-height: 100vh;
+			}
+
+			a {
+				color: inherit;
+			}
+
+			.container {
+				width: min(1080px, 92vw);
+				margin: 0 auto;
+			}
+
+			.topbar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem;
+				padding: 1rem 0;
+			}
+
+			.brand {
+				font-weight: 700;
+				letter-spacing: 0.02em;
+				text-decoration: none;
+			}
+
+			.pill {
+				border: 1px solid var(--line);
+				border-radius: 999px;
+				padding: 0.4rem 0.75rem;
+				font-size: 0.8rem;
+				color: var(--muted);
+				background: color-mix(in srgb, var(--surface) 88%, transparent);
+			}
+
+			.hero {
+				display: grid;
+				grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+				gap: 1.5rem;
+				padding: 2rem 0 1.2rem;
+			}
+
+			.hero-card,
+			.panel,
+			.summary-card {
+				background: color-mix(in srgb, var(--surface) 90%, transparent);
+				border: 1px solid var(--line);
+				border-radius: 18px;
+				box-shadow: var(--shadow);
+			}
+
+			.hero-main {
+				padding: 1.5rem;
+			}
+
+			.eyebrow {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 0.38rem 0.72rem;
+				border-radius: 999px;
+				background: color-mix(in srgb, var(--brand) 12%, var(--surface));
+				color: var(--brand-strong);
+				font-size: 0.82rem;
+				font-weight: 700;
+				letter-spacing: 0.03em;
+				text-transform: uppercase;
+			}
+
+			.hero h1 {
+				margin: 0.95rem 0 0;
+				font-size: clamp(2rem, 4.6vw, 3.35rem);
+				line-height: 1.05;
+			}
+
+			.subhead {
+				margin: 1rem 0 1.2rem;
+				max-width: 62ch;
+				color: var(--muted);
+			}
+
+			.meta-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.7rem;
+			}
+
+			.meta-chip {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+				border-radius: 999px;
+				border: 1px solid var(--line);
+				padding: 0.5rem 0.75rem;
+				font-size: 0.9rem;
+				color: var(--muted);
+				background: color-mix(in srgb, var(--surface) 92%, transparent);
+			}
+
+			.hero-side {
+				padding: 1.15rem;
+				display: grid;
+				gap: 0.8rem;
+			}
+
+			.summary-card {
+				padding: 0.9rem 1rem;
+				background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+			}
+
+			.summary-card strong {
+				display: block;
+				margin-bottom: 0.2rem;
+			}
+
+			.summary-card p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.94rem;
+			}
+
+			.quick-nav {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.7rem;
+				padding: 0.8rem 0 1.3rem;
+			}
+
+			.quick-nav a {
+				text-decoration: none;
+				padding: 0.62rem 0.84rem;
+				border-radius: 12px;
+				border: 1px solid var(--line);
+				background: color-mix(in srgb, var(--surface) 92%, transparent);
+				color: var(--text);
+				font-weight: 600;
+			}
+
+			.quick-nav a:hover,
+			.quick-nav a:focus-visible {
+				outline: none;
+				border-color: var(--brand);
+				box-shadow: 0 0 0 4px var(--ring);
+			}
+
+			.section-grid {
+				display: grid;
+				gap: 1rem;
+				padding-bottom: 2rem;
+			}
+
+			.panel {
+				padding: 1.2rem;
+			}
+
+			.panel h2 {
+				margin: 0 0 0.85rem;
+				font-size: 1.4rem;
+			}
+
+			.panel h3 {
+				margin: 1rem 0 0.35rem;
+				font-size: 1rem;
+			}
+
+			.panel p,
+			.panel li {
+				color: var(--muted);
+			}
+
+			.panel ul {
+				margin: 0.35rem 0 0;
+				padding-left: 1.2rem;
+			}
+
+			.highlight-grid {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 0.8rem;
+				margin-top: 0.85rem;
+			}
+
+			.highlight {
+				padding: 0.85rem 0.95rem;
+				border-radius: 14px;
+				border: 1px solid var(--line);
+				background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
+			}
+
+			.highlight strong {
+				display: block;
+				margin-bottom: 0.2rem;
+			}
+
+			.note {
+				margin-top: 0.9rem;
+				padding: 0.9rem 1rem;
+				border-left: 4px solid var(--brand);
+				border-radius: 12px;
+				background: color-mix(in srgb, var(--brand) 10%, var(--surface));
+				color: var(--muted);
+			}
+
+			.contact-card {
+				display: grid;
+				gap: 0.7rem;
+			}
+
+			.contact-card a {
+				color: var(--accent);
+				font-weight: 700;
+				text-decoration: none;
+			}
+
+			.contact-card a:hover,
+			.contact-card a:focus-visible {
+				text-decoration: underline;
+			}
+
+			footer {
+				padding: 0 0 2rem;
+				color: var(--muted);
+				font-size: 0.88rem;
+			}
+
+			@media (max-width: 900px) {
+				.hero,
+				.highlight-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			@media (max-width: 620px) {
+				.topbar {
+					align-items: flex-start;
+					flex-direction: column;
+				}
+
+				.hero-main,
+				.panel,
+				.hero-side {
+					padding: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="topbar">
+				<a class="brand" href="./index.html">Cello Hill</a>
+				<div class="pill">TakeLight Privacy Policy</div>
+			</header>
+
+			<main>
+				<section class="hero">
+					<div class="hero-card hero-main">
+						<div class="eyebrow">macOS Menu Bar App</div>
+						<h1>Privacy policy for the TakeLight app.</h1>
+						<p class="subhead">
+							TakeLight is a macOS menu bar utility operated by Cello Hill. It can
+							read local MIDI control-surface state and optionally control a
+							user-selected Philips Hue Bridge on your local network. This policy
+							explains what data is processed, where it stays, and your choices.
+						</p>
+						<div class="meta-row">
+							<div class="meta-chip">Last updated: June 7, 2026</div>
+							<div class="meta-chip">No accounts required</div>
+							<div class="meta-chip">No sale of personal data</div>
+						</div>
+					</div>
+
+					<aside class="hero-side hero-card" aria-label="Privacy summary">
+						<div class="summary-card">
+							<strong>Local-first operation</strong>
+							<p>
+								TakeLight does not require an account and does not run a user cloud
+								backend for app data.
+							</p>
+						</div>
+						<div class="summary-card">
+							<strong>Local network access only when needed</strong>
+							<p>
+								If you enable Hue control, TakeLight sends commands only to your
+								selected Hue Bridge on your local LAN.
+							</p>
+						</div>
+						<div class="summary-card">
+							<strong>Minimal data storage</strong>
+							<p>
+								The app stores Hue configuration and app preferences on your Mac so
+								your setup persists between launches.
+							</p>
+						</div>
+					</aside>
+				</section>
+
+				<nav class="quick-nav" aria-label="Section navigation">
+					<a href="#collect">What We Collect</a>
+					<a href="#use">How We Use It</a>
+					<a href="#network">Network Access</a>
+					<a href="#share">How We Share It</a>
+					<a href="#choices">Your Choices</a>
+					<a href="#contact">Contact</a>
+				</nav>
+
+				<div class="section-grid">
+					<section class="panel" id="collect">
+						<h2>What We Collect</h2>
+						<p>
+							TakeLight is designed to minimize data collection. Most data processing
+							happens locally on your Mac.
+						</p>
+						<div class="highlight-grid">
+							<div class="highlight">
+								<strong>Hue bridge configuration</strong>
+								<p>
+									If you pair a Philips Hue Bridge, TakeLight stores the bridge host,
+									application key, and selected light IDs locally on your device.
+								</p>
+							</div>
+							<div class="highlight">
+								<strong>App preferences</strong>
+								<p>
+									The app may store local preferences, such as selected automation
+									targets and mapping choices, so your setup persists.
+								</p>
+							</div>
+							<div class="highlight">
+								<strong>MIDI and presence signals</strong>
+								<p>
+									TakeLight reads local MIDI/control-surface state to drive automation.
+									These signals are processed in-app and are not sent to a TakeLight
+									cloud service.
+								</p>
+							</div>
+							<div class="highlight">
+								<strong>No account profile data</strong>
+								<p>
+									TakeLight does not require user accounts and does not collect profile
+									fields like name, email address, or phone number to use the app.
+								</p>
+							</div>
+						</div>
+
+						<h3>Information stored on your device</h3>
+						<ul>
+							<li>Hue bridge host, bridge application key, and selected light IDs (if configured).</li>
+							<li>MIDI and automation mapping preferences.</li>
+							<li>General app behavior preferences required for menu bar operation.</li>
+						</ul>
+
+						<h3>Optional access and system prompts</h3>
+						<ul>
+							<li>Local network access may be requested when discovering or controlling a Hue Bridge.</li>
+							<li>MIDI device access is used to read local control-surface signals.</li>
+						</ul>
+
+						<div class="note">
+							TakeLight does not use third-party analytics SDKs, advertising SDKs, or
+							cross-app tracking for targeted advertising.
+						</div>
+					</section>
+
+					<section class="panel" id="use">
+						<h2>How We Use Information</h2>
+						<ul>
+							<li>To connect MIDI/control-surface state to local automation behavior.</li>
+							<li>To discover, pair with, and control your selected local Hue Bridge.</li>
+							<li>To persist your app configuration between launches.</li>
+							<li>To troubleshoot app issues and maintain reliable local operation.</li>
+						</ul>
+
+						<h3>No account identity processing</h3>
+						<p>
+							TakeLight does not provide multi-user collaboration accounts. There is no
+							TakeLight user profile service where your personal identity is published
+							to other users.
+						</p>
+					</section>
+
+					<section class="panel" id="network">
+						<h2>Network Access</h2>
+						<p>
+							When Hue integration is enabled, TakeLight sends commands only to the
+							user-selected Philips Hue Bridge on your local area network.
+						</p>
+						<ul>
+							<li>No inbound server functionality is provided by the app.</li>
+							<li>No TakeLight cloud account backend is required for normal operation.</li>
+							<li>No third-party analytics telemetry is sent by default.</li>
+						</ul>
+						<div class="note">
+							If your network blocks mDNS discovery, you can manually enter your bridge
+							host. In either case, traffic is intended for your local Hue bridge.
+						</div>
+					</section>
+
+					<section class="panel" id="share">
+						<h2>How We Share Information</h2>
+						<p>
+							We do not sell personal information. Data sharing is limited to what is
+							necessary to operate local integrations or comply with law.
+						</p>
+						<ul>
+							<li>With your Philips Hue Bridge on your local network when you enable Hue automation.</li>
+							<li>With Apple as required for macOS distribution, app notarization, and App Store operation.</li>
+							<li>When required by law, regulation, legal process, or to protect the rights, safety, and security of users or the service.</li>
+							<li>As part of a business reorganization, merger, sale, or asset transfer if TakeLight changes ownership.</li>
+						</ul>
+
+						<div class="note">
+							We do not share personal information with third parties for their own
+							targeted advertising purposes.
+						</div>
+					</section>
+
+					<section class="panel" id="choices">
+						<h2>Your Choices and Rights</h2>
+						<ul>
+							<li>You can choose whether to pair a Hue Bridge and which lights are controlled.</li>
+							<li>You can remove local configuration by clearing app settings or uninstalling the app.</li>
+							<li>You can revoke local network permissions in macOS settings.</li>
+							<li>You can contact us with questions or privacy requests.</li>
+						</ul>
+
+						<h3>Data retention</h3>
+						<p>
+							TakeLight stores configuration on your device for as long as needed to
+							provide app functionality. If you uninstall the app, local app data is
+							removed by the operating system according to macOS behavior.
+						</p>
+
+						<h3>Children</h3>
+						<p>
+							TakeLight is not directed to children under 13, and we do not knowingly
+							collect personal information from children under 13.
+						</p>
+
+						<h3>Security</h3>
+						<p>
+							We use reasonable technical and organizational measures designed to protect
+							personal information. No method of transmission or storage is perfectly
+							secure, so we cannot guarantee absolute security.
+						</p>
+
+						<h3>Changes to this policy</h3>
+						<p>
+							We may update this policy from time to time. If we make material changes,
+							we will update the date at the top of this page and may provide additional
+							notice where appropriate.
+						</p>
+					</section>
+
+					<section class="panel contact-card" id="contact">
+						<h2>Contact Us</h2>
+						<p>
+							If you have questions about this policy or need help with a privacy
+							request related to TakeLight, contact:
+						</p>
+						<p><a href="mailto:takelight@cellohill.com">takelight@cellohill.com</a></p>
+						<p>
+							Please include enough detail for us to identify your request and assist
+							you efficiently.
+						</p>
+					</section>
+				</div>
+			</main>
+
+			<footer>
+				<div>(c) <span id="year"></span> Cello Hill. TakeLight privacy policy.</div>
+			</footer>
+		</div>
+
+		<script>
+			const yearEl = document.getElementById("year");
+			if (yearEl) {
+				yearEl.textContent = String(new Date().getFullYear());
+			}
+		</script>
+	</body>
+</html>
