@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TakeLight Setup Guide | Pro Tools</title>
+		<meta name="description" content="Pro Tools setup guide placeholder for TakeLight." />
+		<link rel="stylesheet" href="../styles.css" />
+	</head>
+	<body class="takelight-guide-detail">
+		<div class="container">
+			<header class="topbar">
+				<a class="brand" href="../index.html">TakeLight<small>by Cello Hill</small></a>
+				<div class="pill">Pro Tools Setup</div>
+			</header>
+			<main>
+				<section class="panel guide-panel">
+					<h1>Pro Tools Setup Guide</h1>
+					<p class="muted">This is a placeholder page for the Pro Tools setup walkthrough.</p>
+					<ol>
+						<li>Open Pro Tools and the session you want to test.</li>
+						<li>Enable and route MIDI/control messages for TakeLight status updates.</li>
+						<li>Arm and record to confirm Hue status changes in TakeLight.</li>
+					</ol>
+					<p><a class="btn btn-secondary" href="./index.html">Back to all setup guides</a></p>
+				</section>
+			</main>
+			<footer>
+				<div>(c) <span id="year"></span> Cello Hill. TakeLight.</div>
+			</footer>
+		</div>
+		<script>
+			const yearEl = document.getElementById("year");
+			if (yearEl) {
+				yearEl.textContent = String(new Date().getFullYear());
+			}
+		</script>
+	</body>
+</html>

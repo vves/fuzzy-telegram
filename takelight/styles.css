@@ -432,9 +432,101 @@ body.takelight-privacy footer {
 	padding-top: 0;
 }
 
+body.takelight-guides .hero,
+body.takelight-guide-detail .hero {
+	padding: 2rem 0 1.2rem;
+}
+
+body.takelight-guides .hero-main,
+body.takelight-guide-detail .guide-panel {
+	padding: 1.2rem;
+}
+
+body.takelight-guides .eyebrow {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.38rem 0.72rem;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--brand) 12%, var(--surface));
+	color: var(--brand-strong);
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
+
+body.takelight-guides .hero h1 {
+	margin: 0.95rem 0 0;
+	font-size: clamp(2rem, 4.8vw, 3.2rem);
+	line-height: 1.05;
+}
+
+body.takelight-guides .subhead {
+	margin: 1rem 0 0;
+	max-width: 62ch;
+	color: var(--muted);
+}
+
+body.takelight-guides .section-grid {
+	padding-bottom: 2rem;
+}
+
+body.takelight-guides .guide-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+body.takelight-guides .guide-card {
+	text-decoration: none;
+	padding: 1rem;
+	border-radius: 16px;
+	border: 1px solid var(--line);
+	background: color-mix(in srgb, var(--surface) 90%, transparent);
+	box-shadow: var(--shadow);
+	transition: transform 120ms ease, border-color 120ms ease;
+}
+
+body.takelight-guides .guide-card:hover,
+body.takelight-guides .guide-card:focus-visible {
+	outline: none;
+	transform: translateY(-2px);
+	border-color: var(--brand);
+}
+
+body.takelight-guides .guide-card h2 {
+	margin: 0;
+	font-size: 1.2rem;
+}
+
+body.takelight-guides .guide-card p {
+	margin: 0.5rem 0 0;
+	color: var(--muted);
+}
+
+body.takelight-guide-detail .guide-panel {
+	max-width: 760px;
+	margin: 1.6rem auto 2.2rem;
+	border-radius: 16px;
+}
+
+body.takelight-guide-detail .guide-panel h1 {
+	margin-top: 0;
+	margin-bottom: 0.6rem;
+}
+
+body.takelight-guide-detail .guide-panel ol {
+	color: var(--muted);
+	padding-left: 1.2rem;
+}
+
 @media (max-width: 900px) {
 	body.takelight-privacy .hero,
 	body.takelight-privacy .highlight-grid {
+		grid-template-columns: 1fr;
+	}
+
+	body.takelight-guides .guide-grid {
 		grid-template-columns: 1fr;
 	}
 }

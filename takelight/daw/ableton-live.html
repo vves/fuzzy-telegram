@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TakeLight Setup Guide | Ableton Live</title>
+		<meta name="description" content="Ableton Live setup guide placeholder for TakeLight." />
+		<link rel="stylesheet" href="../styles.css" />
+	</head>
+	<body class="takelight-guide-detail">
+		<div class="container">
+			<header class="topbar">
+				<a class="brand" href="../index.html">TakeLight<small>by Cello Hill</small></a>
+				<div class="pill">Ableton Live Setup</div>
+			</header>
+			<main>
+				<section class="panel guide-panel">
+					<h1>Ableton Live Setup Guide</h1>
+					<p class="muted">This is a placeholder page for the Ableton Live setup walkthrough.</p>
+					<ol>
+						<li>Open Ableton Live and your set.</li>
+						<li>Route MIDI/control signals so TakeLight can detect armed/record states.</li>
+						<li>Run a recording test and verify Hue transitions from TakeLight.</li>
+					</ol>
+					<p><a class="btn btn-secondary" href="./index.html">Back to all setup guides</a></p>
+				</section>
+			</main>
+			<footer>
+				<div>(c) <span id="year"></span> Cello Hill. TakeLight.</div>
+			</footer>
+		</div>
+		<script>
+			const yearEl = document.getElementById("year");
+			if (yearEl) {
+				yearEl.textContent = String(new Date().getFullYear());
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TakeLight Setup Guide | LUNA</title>
+		<meta name="description" content="LUNA setup guide placeholder for TakeLight." />
+		<link rel="stylesheet" href="../styles.css" />
+	</head>
+	<body class="takelight-guide-detail">
+		<div class="container">
+			<header class="topbar">
+				<a class="brand" href="../index.html">TakeLight<small>by Cello Hill</small></a>
+				<div class="pill">LUNA Setup</div>
+			</header>
+			<main>
+				<section class="panel guide-panel">
+					<h1>LUNA Setup Guide</h1>
+					<p class="muted">This is a placeholder page for the LUNA setup walkthrough.</p>
+					<ol>
+						<li>Launch LUNA and open your session.</li>
+						<li>Configure MIDI routing for TakeLight status signals.</li>
+						<li>Arm and record to verify Hue status changes in TakeLight.</li>
+					</ol>
+					<p><a class="btn btn-secondary" href="./index.html">Back to all setup guides</a></p>
+				</section>
+			</main>
+			<footer>
+				<div>(c) <span id="year"></span> Cello Hill. TakeLight.</div>
+			</footer>
+		</div>
+		<script>
+			const yearEl = document.getElementById("year");
+			if (yearEl) {
+				yearEl.textContent = String(new Date().getFullYear());
+			}
+		</script>
+	</body>
+</html>

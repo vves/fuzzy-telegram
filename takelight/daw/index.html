@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TakeLight DAW Setup Guides</title>
+		<meta
+			name="description"
+			content="Choose your DAW to view TakeLight setup instructions."
+		/>
+		<link rel="stylesheet" href="../styles.css" />
+	</head>
+	<body class="takelight-guides">
+		<div class="container">
+			<header class="topbar">
+				<a class="brand" href="../index.html">TakeLight<small>by Cello Hill</small></a>
+				<div class="pill">DAW Setup Guides</div>
+			</header>
+
+			<main>
+				<section class="hero">
+					<div class="hero-card hero-main">
+						<div class="eyebrow">Setup Instructions</div>
+						<h1>Set up TakeLight in your DAW.</h1>
+						<p class="subhead">
+							Choose your DAW below for a dedicated setup walkthrough. These pages are
+							placeholders and will be expanded with screenshots and exact routing steps.
+						</p>
+					</div>
+				</section>
+
+				<section class="section-grid">
+					<div class="guide-grid">
+						<a class="guide-card" href="./luna.html">
+							<h2>LUNA</h2>
+							<p>Placeholder guide for configuring TakeLight signals in LUNA.</p>
+						</a>
+						<a class="guide-card" href="./logic-pro.html">
+							<h2>Logic Pro</h2>
+							<p>Placeholder guide for configuring TakeLight signals in Logic Pro.</p>
+						</a>
+						<a class="guide-card" href="./ableton-live.html">
+							<h2>Ableton Live</h2>
+							<p>Placeholder guide for configuring TakeLight signals in Ableton Live.</p>
+						</a>
+						<a class="guide-card" href="./pro-tools.html">
+							<h2>Pro Tools</h2>
+							<p>Placeholder guide for configuring TakeLight signals in Pro Tools.</p>
+						</a>
+					</div>
+				</section>
+			</main>
+
+			<footer>
+				<div>(c) <span id="year"></span> Cello Hill. TakeLight setup guides.</div>
+			</footer>
+		</div>
+
+		<script>
+			const yearEl = document.getElementById("year");
+			if (yearEl) {
+				yearEl.textContent = String(new Date().getFullYear());
+			}
+		</script>
+	</body>
+</html>

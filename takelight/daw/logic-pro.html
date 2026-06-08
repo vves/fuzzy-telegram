@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TakeLight Setup Guide | Logic Pro</title>
+		<meta name="description" content="Logic Pro setup guide placeholder for TakeLight." />
+		<link rel="stylesheet" href="../styles.css" />
+	</head>
+	<body class="takelight-guide-detail">
+		<div class="container">
+			<header class="topbar">
+				<a class="brand" href="../index.html">TakeLight<small>by Cello Hill</small></a>
+				<div class="pill">Logic Pro Setup</div>
+			</header>
+			<main>
+				<section class="panel guide-panel">
+					<h1>Logic Pro Setup Guide</h1>
+					<p class="muted">This is a placeholder page for the Logic Pro setup walkthrough.</p>
+					<ol>
+						<li>Open Logic Pro and your target project.</li>
+						<li>Enable and route MIDI/control data for TakeLight status detection.</li>
+						<li>Test record-arm and recording transitions to confirm light behavior.</li>
+					</ol>
+					<p><a class="btn btn-secondary" href="./index.html">Back to all setup guides</a></p>
+				</section>
+			</main>
+			<footer>
+				<div>(c) <span id="year"></span> Cello Hill. TakeLight.</div>
+			</footer>
+		</div>
+		<script>
+			const yearEl = document.getElementById("year");
+			if (yearEl) {
+				yearEl.textContent = String(new Date().getFullYear());
+			}
+		</script>
+	</body>
+</html>
