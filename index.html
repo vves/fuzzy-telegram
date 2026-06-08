@@ -324,8 +324,8 @@
 							Message
 							<textarea name="message" required></textarea>
 						</label>
-						<button class="btn btn-primary" type="submit">Send Email</button>
-						<p class="muted">Or email directly: website@cellohill.com</p>
+						<button class="btn btn-primary" type="submit">Open Contact Form</button>
+						<p class="muted">Use our contact form and we will follow up.</p>
 					</div>
 				</form>
 			</section>
@@ -342,17 +342,7 @@
 			const form = document.getElementById("contactForm");
 			form.addEventListener("submit", (event) => {
 				event.preventDefault();
-
-				const data = new FormData(form);
-				const name = String(data.get("name") || "").trim();
-				const email = String(data.get("email") || "").trim();
-				const message = String(data.get("message") || "").trim();
-
-				const subject = encodeURIComponent("Cello Hill Inquiry");
-				const body = encodeURIComponent(
-					`Name: ${name}\nEmail: ${email}\n\nProject Details:\n${message}`,
-				);
-				window.location.href = `mailto:website@cellohill.com?subject=${subject}&body=${body}`;
+				window.location.href = "https://tally.so/r/ODEbxg";
 			});
 		</script>
 	</body>
