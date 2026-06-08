@@ -3,10 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>TakeLight | Studio Presence Lighting for macOS</title>
+		<title>TakeLight | Studio Recording Lighting for macOS</title>
 		<meta
 			name="description"
-			content="TakeLight is a macOS menu bar app that maps studio presence and MIDI signals to Philips Hue lighting, helping creators protect flow and reduce interruptions."
+			content="TakeLight is a macOS menu bar app that turns Philips Hue into a modern recording light, driven by DAW arm and record signals."
 		/>
 		<link rel="stylesheet" href="./styles.css" />
 	</head>
@@ -19,13 +19,13 @@
 
 			<section class="hero" id="top">
 				<div>
-					<div class="kicker">Studio Presence Automation</div>
-					<h1>Keep your creative flow uninterrupted.</h1>
+					<div class="kicker">Modern Recording Light</div>
+					<h1>A recording light for the DAW era.</h1>
 					<p class="subhead">
-						TakeLight maps local MIDI control-surface presence to Philips Hue lighting so
-						your studio can signal recording, focus, and break states automatically.
-						No account required. Local-first behavior. Built for creators who need fewer
-						interruptions and clearer room status.
+						TakeLight turns Philips Hue into a studio recording light that responds to your
+						DAW. Arm a track or hit record, and your selected lights update automatically.
+						It is the classic door-light concept, rebuilt for modern home and project
+						studios.
 					</p>
 					<div class="cta-row">
 						<a class="btn btn-primary" href="#availability">Get TakeLight</a>
@@ -38,7 +38,7 @@
 					<ul class="feature-list">
 						<li><strong>Menu Bar Native</strong><br />Fast controls without stealing screen space.</li>
 						<li><strong>Hue Pairing Built In</strong><br />Discover, pair, and select lights directly in-app.</li>
-						<li><strong>MIDI Presence Engine</strong><br />Use DAW track enable and record signals to trigger lighting state changes.</li>
+						<li><strong>DAW Status to Light</strong><br />Use DAW arm and record signals to drive your recording light automatically.</li>
 					</ul>
 				</aside>
 			</section>
@@ -48,13 +48,13 @@
 					<article class="card panel">
 						<h3>How TakeLight Works</h3>
 						<p>
-							TakeLight runs in the macOS menu bar and monitors configured local MIDI
-							signals. When your configured state changes, TakeLight updates your selected
-							Hue lights to match your studio mode.
+							TakeLight runs in the macOS menu bar and watches your configured DAW and
+							MIDI signals. When armed or recording status changes, TakeLight updates your
+							selected Hue lights in real time.
 						</p>
 						<p>
-							Examples include "recording in progress" lighting to reduce interruptions,
-							or visual state changes that communicate availability in shared spaces.
+							That gives you a clear "recording armed" and "recording in progress" signal in other rooms, helping
+							reduce interruptions during takes.  No more guessing if the 'tape' is rolling!
 						</p>
 					</article>
 
@@ -64,7 +64,7 @@
 							<li>Automatic Hue Bridge discovery plus manual host entry fallback</li>
 							<li>Bridge pairing flow and persistent local bridge credentials</li>
 							<li>Selectable light targets (single room or multiple lights)</li>
-							<li>CoreMIDI-driven presence mapping and local automation actions</li>
+							<li>CoreMIDI-driven DAW status mapping and local light automation</li>
 						</ul>
 					</article>
 				</div>
@@ -79,14 +79,10 @@
 						local-first philosophy.
 					</p>
 					<div class="badge-row">
-						<span class="badge">Planned: Apple HomeKit Integration</span>
-						<span class="badge">Planned: Home Assistant Integration</span>
+						<span class="badge">Coming soon: Govee WiFi and Bluetooth Light support</span>
 					</div>
 					<p class="muted">
-						Future versions are planned to add HomeKit scene triggers and Home Assistant
-						entity/service integration so your studio state can sync across broader
-						home automation systems.
-					</p>
+						Exact same functionality as Hue, but for Govee WiFi and Bluetooth lights.</p>
 				</article>
 			</section>
 
