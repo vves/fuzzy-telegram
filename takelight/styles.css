@@ -1,0 +1,464 @@
+:root {
+	color-scheme: light dark;
+	--bg: #13090a;
+	--bg-accent: #1e0b0d;
+	--surface: #241214;
+	--surface-strong: #2a1719;
+	--text: #ffe9df;
+	--muted: #d0b7ac;
+	--line: #5e2c2c;
+	--brand: #ff5135;
+	--brand-strong: #ff7752;
+	--accent: #ff9a80;
+	--ring: rgba(255, 81, 53, 0.35);
+	--shadow: 0 22px 46px rgba(0, 0, 0, 0.32);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #13090a;
+		--bg-accent: #1b0b0d;
+		--surface: #251114;
+		--surface-strong: #2c1618;
+		--text: #ffe9df;
+		--muted: #d4b9af;
+		--line: #5f2b2c;
+		--brand: #ff6242;
+		--brand-strong: #ff896d;
+		--accent: #ffae98;
+		--ring: rgba(255, 98, 66, 0.35);
+		--shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+	background:
+		radial-gradient(circle at 78% 4%, rgba(255, 94, 66, 0.28) 0, transparent 42%),
+		radial-gradient(circle at 12% 88%, rgba(255, 161, 66, 0.12) 0, transparent 48%),
+		linear-gradient(160deg, var(--bg) 0%, var(--bg-accent) 100%);
+	color: var(--text);
+	line-height: 1.5;
+	min-height: 100vh;
+}
+
+a {
+	color: inherit;
+}
+
+.container {
+	width: min(1080px, 92vw);
+	margin: 0 auto;
+}
+
+.topbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem 0;
+}
+
+.brand {
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.brand small {
+	display: block;
+	font-size: 0.68rem;
+	letter-spacing: 0.08em;
+	color: var(--muted);
+}
+
+.pill {
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	padding: 0.4rem 0.75rem;
+	font-size: 0.8rem;
+	color: var(--muted);
+	background: color-mix(in srgb, var(--surface) 84%, transparent);
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 0;
+	border-radius: 12px;
+	padding: 0.78rem 1rem;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn-primary {
+	background: var(--brand);
+	color: #200a07;
+}
+
+.btn-primary:hover {
+	background: var(--brand-strong);
+}
+
+.btn-secondary {
+	background: transparent;
+	border: 1px solid var(--line);
+	color: var(--text);
+}
+
+.card,
+.hero-card,
+.panel,
+.summary-card {
+	background: color-mix(in srgb, var(--surface) 90%, transparent);
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	box-shadow: var(--shadow);
+}
+
+.panel p,
+.panel li {
+	color: var(--muted);
+}
+
+footer {
+	padding: 1.4rem 0 2rem;
+	color: var(--muted);
+	font-size: 0.88rem;
+}
+
+body.takelight-home .hero {
+	display: grid;
+	grid-template-columns: 1.2fr 1fr;
+	gap: 2rem;
+	padding: 2.2rem 0 1.4rem;
+}
+
+body.takelight-home .hero h1 {
+	margin: 0;
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	line-height: 1.08;
+}
+
+body.takelight-home .subhead {
+	margin: 1.1rem 0 1.6rem;
+	color: var(--muted);
+	max-width: 62ch;
+}
+
+body.takelight-home .cta-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7rem;
+}
+
+body.takelight-home .kicker {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-weight: 700;
+	padding: 0.38rem 0.68rem;
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--surface) 80%, transparent);
+}
+
+body.takelight-home .hero-card {
+	padding: 1.1rem;
+}
+
+body.takelight-home .hero-card h3 {
+	margin: 0.2rem 0 0.65rem;
+}
+
+body.takelight-home .feature-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	gap: 0.6rem;
+}
+
+body.takelight-home .feature-list li {
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	padding: 0.6rem 0.7rem;
+	background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+body.takelight-home .section {
+	padding: 1.4rem 0;
+}
+
+body.takelight-home .grid-2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+body.takelight-home .panel {
+	padding: 1rem;
+}
+
+body.takelight-home .panel h3 {
+	margin-top: 0.2rem;
+	margin-bottom: 0.5rem;
+}
+
+body.takelight-home .roadmap {
+	padding: 1.2rem;
+}
+
+body.takelight-home .badge-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.55rem;
+	margin: 0.7rem 0 0.45rem;
+}
+
+body.takelight-home .badge {
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	padding: 0.35rem 0.62rem;
+	border-radius: 999px;
+	border: 1px solid var(--line);
+	background: color-mix(in srgb, var(--surface) 82%, transparent);
+}
+
+body.takelight-home .cta-panel {
+	padding: 1.1rem;
+	display: grid;
+	gap: 0.65rem;
+}
+
+body.takelight-home .muted {
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+body.takelight-privacy {
+	line-height: 1.6;
+}
+
+body.takelight-privacy .hero {
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+	gap: 1.5rem;
+	padding: 2rem 0 1.2rem;
+}
+
+body.takelight-privacy .hero-main {
+	padding: 1.5rem;
+}
+
+body.takelight-privacy .eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.38rem 0.72rem;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--brand) 12%, var(--surface));
+	color: var(--brand-strong);
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
+
+body.takelight-privacy .hero h1 {
+	margin: 0.95rem 0 0;
+	font-size: clamp(2rem, 4.6vw, 3.35rem);
+	line-height: 1.05;
+}
+
+body.takelight-privacy .subhead {
+	margin: 1rem 0 1.2rem;
+	max-width: 62ch;
+	color: var(--muted);
+}
+
+body.takelight-privacy .meta-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7rem;
+}
+
+body.takelight-privacy .meta-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	border-radius: 999px;
+	border: 1px solid var(--line);
+	padding: 0.5rem 0.75rem;
+	font-size: 0.9rem;
+	color: var(--muted);
+	background: color-mix(in srgb, var(--surface) 92%, transparent);
+}
+
+body.takelight-privacy .hero-side {
+	padding: 1.15rem;
+	display: grid;
+	gap: 0.8rem;
+}
+
+body.takelight-privacy .summary-card {
+	padding: 0.9rem 1rem;
+	background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+}
+
+body.takelight-privacy .summary-card strong {
+	display: block;
+	margin-bottom: 0.2rem;
+}
+
+body.takelight-privacy .summary-card p {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.94rem;
+}
+
+body.takelight-privacy .quick-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7rem;
+	padding: 0.8rem 0 1.3rem;
+}
+
+body.takelight-privacy .quick-nav a {
+	text-decoration: none;
+	padding: 0.62rem 0.84rem;
+	border-radius: 12px;
+	border: 1px solid var(--line);
+	background: color-mix(in srgb, var(--surface) 92%, transparent);
+	color: var(--text);
+	font-weight: 600;
+}
+
+body.takelight-privacy .quick-nav a:hover,
+body.takelight-privacy .quick-nav a:focus-visible {
+	outline: none;
+	border-color: var(--brand);
+	box-shadow: 0 0 0 4px var(--ring);
+}
+
+body.takelight-privacy .section-grid {
+	display: grid;
+	gap: 1rem;
+	padding-bottom: 2rem;
+}
+
+body.takelight-privacy .panel {
+	padding: 1.2rem;
+	border-radius: 18px;
+}
+
+body.takelight-privacy .panel h2 {
+	margin: 0 0 0.85rem;
+	font-size: 1.4rem;
+}
+
+body.takelight-privacy .panel h3 {
+	margin: 1rem 0 0.35rem;
+	font-size: 1rem;
+}
+
+body.takelight-privacy .panel ul {
+	margin: 0.35rem 0 0;
+	padding-left: 1.2rem;
+}
+
+body.takelight-privacy .highlight-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.8rem;
+	margin-top: 0.85rem;
+}
+
+body.takelight-privacy .highlight {
+	padding: 0.85rem 0.95rem;
+	border-radius: 14px;
+	border: 1px solid var(--line);
+	background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
+}
+
+body.takelight-privacy .highlight strong {
+	display: block;
+	margin-bottom: 0.2rem;
+}
+
+body.takelight-privacy .note {
+	margin-top: 0.9rem;
+	padding: 0.9rem 1rem;
+	border-left: 4px solid var(--brand);
+	border-radius: 12px;
+	background: color-mix(in srgb, var(--brand) 10%, var(--surface));
+	color: var(--muted);
+}
+
+body.takelight-privacy .contact-card {
+	display: grid;
+	gap: 0.7rem;
+}
+
+body.takelight-privacy .contact-card a {
+	color: var(--accent);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+body.takelight-privacy .contact-card a:hover,
+body.takelight-privacy .contact-card a:focus-visible {
+	text-decoration: underline;
+}
+
+body.takelight-privacy footer {
+	padding-top: 0;
+}
+
+@media (max-width: 900px) {
+	body.takelight-privacy .hero,
+	body.takelight-privacy .highlight-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 860px) {
+	body.takelight-home .hero,
+	body.takelight-home .grid-2 {
+		grid-template-columns: 1fr;
+	}
+
+	body.takelight-home .hero {
+		padding-top: 1.4rem;
+	}
+}
+
+@media (max-width: 620px) {
+	.topbar {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	body.takelight-privacy .hero-main,
+	body.takelight-privacy .panel,
+	body.takelight-privacy .hero-side {
+		padding: 1rem;
+	}
+}
