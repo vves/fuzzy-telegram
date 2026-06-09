@@ -225,6 +225,38 @@ body.takelight-home .roadmap {
 	padding: 1.2rem;
 }
 
+body.takelight-home .hardware-panel {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+	gap: 1rem;
+	align-items: center;
+	padding: 1.2rem;
+}
+
+body.takelight-home .hardware-panel h3 {
+	margin: 0 0 0.5rem;
+}
+
+body.takelight-home .hardware-panel p {
+	margin: 0;
+}
+
+body.takelight-home .hardware-actions {
+	justify-content: flex-end;
+}
+
+body.takelight-home .hardware-actions .btn {
+	min-height: 44px;
+	text-align: center;
+}
+
+body.takelight-home .affiliate-disclosure {
+	margin-top: 0.75rem;
+	color: var(--accent);
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+
 body.takelight-home .badge-row {
 	display: flex;
 	flex-wrap: wrap;
@@ -533,12 +565,17 @@ body.takelight-guide-detail .guide-panel ol {
 
 @media (max-width: 860px) {
 	body.takelight-home .hero,
+	body.takelight-home .hardware-panel,
 	body.takelight-home .grid-2 {
 		grid-template-columns: 1fr;
 	}
 
 	body.takelight-home .hero {
 		padding-top: 1.4rem;
+	}
+
+	body.takelight-home .hardware-actions {
+		justify-content: flex-start;
 	}
 }
 
@@ -552,5 +589,9 @@ body.takelight-guide-detail .guide-panel ol {
 	body.takelight-privacy .panel,
 	body.takelight-privacy .hero-side {
 		padding: 1rem;
+	}
+
+	body.takelight-home .hardware-actions .btn {
+		width: 100%;
 	}
 }
