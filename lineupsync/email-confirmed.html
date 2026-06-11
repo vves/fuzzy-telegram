@@ -98,27 +98,69 @@
     <p class="lead">Your email address is verified. You can now sign in to LineupSync.</p>
 
     <a id="open-app" class="btn" href="#">Open LineupSync</a>
-    <p class="hint">Don't have the app on this device? Open this page on your phone, or just sign in from the LineupSync app.</p>
+    <p id="hint" class="hint">On your phone? Tap above to jump into the app. On a computer, just sign in from the LineupSync app on your device.</p>
 
     <footer>&copy; 2026 LineupSync</footer>
   </main>
 
   <script>
-    // Build the in-app deep link. If this confirmation was for an invite,
-    // route straight to the invite; otherwise to onboarding.
     (function () {
+      // ---- App Store URLs — SET THESE once the app is published. ----
+      // Left blank, the mobile fallback simply stays on this page (no error).
+      var IOS_STORE_URL = "";
+      var ANDROID_STORE_URL = "";
+
+      // Build the in-app deep link. If this confirmation was for an invite,
+      // route straight to the invite; otherwise to onboarding.
       var params = new URLSearchParams(window.location.search);
       var invite = params.get("invite");
       var deepLink = invite
         ? "lineup-sync://invites/" + encodeURIComponent(invite)
         : "lineup-sync://onboarding";
 
-      document.getElementById("open-app").setAttribute("href", deepLink);
+      var ua = navigator.userAgent || "";
+      var isIOS = /iphone|ipad|ipod/i.test(ua) ||
+        // iPadOS 13+ reports as desktop Safari but is touch-capable
+        (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      var isAndroid = /android/i.test(ua);
+      var isMobile = isIOS || isAndroid;
 
-      // Auto-attempt to open the app. On desktop (or when the app isn't
-      // installed) the custom scheme is ignored and the "Email confirmed"
-      // fallback stays on screen — which is exactly what we want.
-      try { window.location.href = deepLink; } catch (e) { /* fallback visible */ }
+      var btn = document.getElementById("open-app");
+      var hint = document.getElementById("hint");
+      btn.setAttribute("href", deepLink);
+
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Desktop has no app and the custom scheme throws an "address is
+        // invalid" error — so don't even attempt it; guide to mobile instead.
+        if (!isMobile) {
+          hint.textContent =
+            "LineupSync is an iPhone & iPad app. Open this page on your device, or sign in from the LineupSync app.";
+          return;
+        }
+
+        // There's no reliable way to know if the app is installed, so we
+        // attempt the deep link and, if we're still here ~1.5s later (app
+        // didn't open), fall back to the app store.
+        var store = isAndroid ? ANDROID_STORE_URL : IOS_STORE_URL;
+        var timer = setTimeout(function () {
+          if (document.visibilityState === "visible" && store) {
+            window.location.href = store;
+          }
+        }, 1500);
+
+        // If the app opens, the page is hidden — cancel the store fallback.
+        document.addEventListener(
+          "visibilitychange",
+          function () {
+            if (document.visibilityState === "hidden") clearTimeout(timer);
+          },
+          { once: true },
+        );
+
+        window.location.href = deepLink;
+      });
     })();
   </script>
 </body>
