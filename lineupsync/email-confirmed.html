@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Email confirmed — LineupSync</title>
+<meta name="description" content="Your email address is confirmed. You can now sign in to LineupSync." />
+
+<link rel="icon" href="icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  /* LineupSync brand tokens (shared with the marketing site) */
+  :root {
+    --indigo:      #6366f1;
+    --indigo-600:  #4f46e5;
+    --indigo-100:  #c7d2fe;
+    --indigo-50:   #eef2ff;
+    --pink-50:     #ffe6f2;
+    --green:       #16a34a;
+    --green-50:    #e7f6ec;
+    --ink:         #18181b;
+    --ink-2:       #3f3f46;
+    --muted:       #71717a;
+    --line:        #e4e4e7;
+    --surface:     #ffffff;
+    --canvas:      #fafafa;
+    --radius:      20px;
+    --shadow:      0 1px 2px rgba(24,24,27,.04), 0 12px 40px rgba(99,102,241,.10);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(60% 50% at 15% 10%, var(--indigo-50) 0%, transparent 60%),
+      radial-gradient(45% 45% at 90% 5%, var(--pink-50) 0%, transparent 55%),
+      var(--canvas);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  .card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 18px; margin-bottom: 28px;
+  }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .check {
+    width: 64px; height: 64px; margin: 0 auto 22px;
+    border-radius: 50%; background: var(--green-50);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .check svg { width: 34px; height: 34px; }
+  h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 10px; }
+  p.lead { font-size: 16px; color: var(--ink-2); margin: 0 0 28px; }
+  .btn {
+    display: inline-block; width: 100%;
+    padding: 14px 20px; border-radius: 999px;
+    background: var(--indigo-600); color: #fff;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    transition: filter .15s ease, transform .15s ease;
+  }
+  .btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+  .hint { font-size: 13px; color: var(--muted); margin: 18px 0 0; }
+  footer { margin-top: 28px; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+  <main class="card">
+    <span class="brand"><img src="icon.png" alt="LineupSync icon" /> LineupSync</span>
+
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6 9 17l-5-5" />
+      </svg>
+    </div>
+
+    <h1>Email confirmed</h1>
+    <p class="lead">Your email address is verified. You can now sign in to LineupSync.</p>
+
+    <a id="open-app" class="btn" href="#">Open LineupSync</a>
+    <p class="hint">Don't have the app on this device? Open this page on your phone, or just sign in from the LineupSync app.</p>
+
+    <footer>&copy; 2026 LineupSync</footer>
+  </main>
+
+  <script>
+    // Build the in-app deep link. If this confirmation was for an invite,
+    // route straight to the invite; otherwise to onboarding.
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var invite = params.get("invite");
+      var deepLink = invite
+        ? "lineup-sync://invites/" + encodeURIComponent(invite)
+        : "lineup-sync://onboarding";
+
+      document.getElementById("open-app").setAttribute("href", deepLink);
+
+      // Auto-attempt to open the app. On desktop (or when the app isn't
+      // installed) the custom scheme is ignored and the "Email confirmed"
+      // fallback stays on screen — which is exactly what we want.
+      try { window.location.href = deepLink; } catch (e) { /* fallback visible */ }
+    })();
+  </script>
+</body>
+</html>
