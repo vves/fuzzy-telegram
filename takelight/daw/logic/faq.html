@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TakeLight FAQ | Logic Pro Record States</title>
+		<meta
+			name="description"
+			content="Understand the four Logic Pro track record-enable states and how TakeLight maps each one to your recording light."
+		/>
+		<link rel="stylesheet" href="../../styles.css" />
+		<style>
+			.state-list {
+				list-style: none;
+				margin: 1.4rem 0 0;
+				padding: 0;
+				display: grid;
+				gap: 1rem;
+			}
+			.state-card {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				gap: 1rem;
+				align-items: start;
+				padding: 1rem 1.1rem;
+				border: 1px solid var(--line);
+				border-radius: 14px;
+				background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+			}
+			.rbtn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 34px;
+				height: 26px;
+				border-radius: 6px;
+				font-weight: 700;
+				font-size: 0.95rem;
+				border: 1px solid var(--line);
+				background: #3a2a2a;
+				color: var(--muted);
+			}
+			.rbtn.gray-r {
+				color: var(--brand);
+				background: #3a2a2a;
+			}
+			.rbtn.solid {
+				background: var(--brand);
+				color: #1a0808;
+				border-color: var(--brand-strong);
+			}
+			.rbtn.blink {
+				background: var(--brand);
+				color: #1a0808;
+				border-color: var(--brand-strong);
+				animation: rblink 1s steps(1, end) infinite;
+			}
+			@keyframes rblink {
+				50% {
+					background: #3a2a2a;
+					color: var(--brand);
+				}
+			}
+			.state-card h3 {
+				margin: 0 0 0.3rem;
+				font-size: 1.05rem;
+			}
+			.state-card p {
+				margin: 0 0 0.4rem;
+			}
+			.state-map {
+				display: inline-block;
+				margin-top: 0.2rem;
+				padding: 0.15rem 0.6rem;
+				border-radius: 999px;
+				font-size: 0.78rem;
+				font-weight: 700;
+				background: color-mix(in srgb, var(--brand) 18%, transparent);
+				color: var(--accent);
+				border: 1px solid var(--line);
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.rbtn.blink {
+					animation: none;
+				}
+			}
+		</style>
+	</head>
+	<body class="takelight-guide-detail">
+		<div class="container">
+			<header class="topbar">
+				<a class="brand" href="../../index.html">TakeLight<small>by Cello Hill</small></a>
+				<div class="pill">Logic Pro FAQ</div>
+			</header>
+			<main>
+				<section class="panel guide-panel">
+					<h1>Logic Pro Record States</h1>
+					<p class="muted">
+						Logic Pro shows four different looks for a track's Record Enable
+						("R") button. Each one means something different, and TakeLight maps
+						each to the matching light state so your recording light always
+						reflects what Logic is actually doing.
+					</p>
+
+					<ul class="state-list">
+						<li class="state-card">
+							<span class="rbtn" aria-hidden="true">R</span>
+							<div>
+								<h3>Off (Gray)</h3>
+								<p>
+									The track is not armed for recording. This is the resting
+									state.
+								</p>
+								<span class="state-map">TakeLight: Idle</span>
+							</div>
+						</li>
+
+						<li class="state-card">
+							<span class="rbtn blink" aria-hidden="true">R</span>
+							<div>
+								<h3>Record-ready (Blinking Red)</h3>
+								<p>
+									You have manually clicked the Record Enable button, and the
+									track is waiting for you to hit record.
+								</p>
+								<span class="state-map">TakeLight: Record Enabled</span>
+							</div>
+						</li>
+
+						<li class="state-card">
+							<span class="rbtn solid" aria-hidden="true">R</span>
+							<div>
+								<h3>Recording (Solid Red)</h3>
+								<p>
+									You have engaged the master record button, and the track is
+									actively capturing audio or MIDI.
+								</p>
+								<span class="state-map">TakeLight: Recording</span>
+							</div>
+						</li>
+
+						<li class="state-card">
+							<span class="rbtn gray-r" aria-hidden="true">R</span>
+							<div>
+								<h3>Focused / Selected Track (Gray with a red letter "R")</h3>
+								<p>
+									If no tracks are manually armed, Logic Pro automatically sets
+									this state for the single track you currently have selected in
+									the workspace. It is only a selection indicator, not a real
+									record-enable.
+								</p>
+								<span class="state-map">TakeLight: Idle</span>
+							</div>
+						</li>
+					</ul>
+
+					<p class="muted" style="margin-top: 1.4rem">
+						Source:
+						<a
+							href="https://support.apple.com/guide/logicpro-ipad/make-tracks-ready-for-recording-lpip7b126486/ipados"
+							target="_blank"
+							rel="noopener noreferrer"
+							>Apple Logic Pro User Guide</a
+						>.
+					</p>
+
+					<p><a class="btn btn-secondary" href="../logic-pro.html">Back to Logic Pro setup</a></p>
+				</section>
+			</main>
+			<footer>
+				<div>(c) <span id="year"></span> Cello Hill. TakeLight.</div>
+			</footer>
+		</div>
+		<script>
+			const yearEl = document.getElementById("year");
+			if (yearEl) {
+				yearEl.textContent = String(new Date().getFullYear());
+			}
+		</script>
+	</body>
+</html>
