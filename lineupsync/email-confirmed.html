@@ -118,6 +118,23 @@
         ? "lineup-sync://invites/" + encodeURIComponent(invite)
         : "lineup-sync://onboarding";
 
+      // Supabase puts the new session (or an error) in the URL hash. Forward
+      // the tokens so the app can sign the user in; without them onboarding
+      // can't save the profile.
+      var hash = window.location.hash || "";
+      var hashParams = new URLSearchParams(hash.replace(/^#/, ""));
+      if (hashParams.get("access_token") && hashParams.get("refresh_token")) {
+        deepLink += hash;
+      } else if (hashParams.get("error")) {
+        // Link already used or expired (email scanners can consume it first).
+        // Send them to sign in instead of onboarding without a session.
+        if (!invite) deepLink = "lineup-sync://";
+        document.querySelector(".check").style.display = "none";
+        document.querySelector("h1").textContent = "This link has expired";
+        document.querySelector("p.lead").textContent =
+          "Your email may already be confirmed. Open LineupSync and sign in with your email and password.";
+      }
+
       var ua = navigator.userAgent || "";
       var isIOS = /iphone|ipad|ipod/i.test(ua) ||
         // iPadOS 13+ reports as desktop Safari but is touch-capable
