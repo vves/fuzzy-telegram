@@ -112,6 +112,17 @@
   .appstore { display: inline-block; transition: transform .15s ease, filter .15s ease; }
   .appstore:hover { transform: translateY(-1px); filter: brightness(1.05); }
   .appstore svg { display: block; height: 54px; width: auto; }
+  .android-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; min-height: 54px; padding: 10px 18px; background: var(--indigo-600); color: #fff; border-radius: 10px; font-weight: 700; text-align: center; }
+  .android-download:hover { background: #4338ca; }
+  .android-download small { font-size: 12px; font-weight: 500; }
+  a:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; }
+  .android-help { margin-top: 18px; font-size: 14px; color: var(--ink-2); }
+  .android-help a, .install a { text-decoration: underline; text-underline-offset: 3px; }
+  .install { padding: 48px 0; background: var(--surface); border-block: 1px solid var(--line); scroll-margin-top: 80px; }
+  .install h2 { font-size: 26px; }
+  .install ol { padding-left: 24px; max-width: 48em; }
+  .install li { padding: 5px 0; }
+  .install p { max-width: 48em; color: var(--ink-2); margin-top: 14px; }
   .badge-note { font-size: 13px; color: var(--muted); }
 
   /* ---------- Phone mockup (pure CSS/SVG placeholder — SWAP with real screenshot) ---------- */
@@ -294,8 +305,11 @@
             </g>
           </svg>
         </a>
-        <span class="badge-note">Free beta via TestFlight &middot; iPhone &amp; iPad</span>
+
+        <a class="android-download" href="https://expo.dev/artifacts/eas/hzo9E75S9cpS6Kqnm5xclp3T-AYYyvZBnaG5IrHrsbI.apk"><span aria-hidden="true">↓</span> Download for Android <small>v1.5.0 · APK</small></a>
+        <span class="badge-note">iPhone beta via TestFlight · Android direct download</span>
       </div>
+      <p class="android-help">Android 7.0+ · About 100 MB · <a href="#android-install">How to install on Android</a></p>
     </div>
 
     <!-- Phone mockup placeholder — SWAP .screen contents with a real screenshot <img> -->
@@ -304,7 +318,7 @@
         <div class="notch"></div>
         <div class="screen">
           <div class="screen-top">
-            <div class="title">String Quartet · Plan</div>
+            <div class="title">String Quartet · Sessions</div>
             <div class="sub">3 of 4 members available this week</div>
           </div>
           <div class="screen-body">
@@ -333,6 +347,21 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="install" id="android-install" aria-labelledby="android-install-title">
+  <div class="wrap">
+    <h2 id="android-install-title">Install LineupSync on Android</h2>
+    <p>Version 1.5.0 · Android 7.0 or later · Free direct download. An account and internet connection are required.</p>
+    <ol>
+      <li>Open this page on your Android phone and tap <strong>Download for Android</strong>. The APK downloads from our Expo build host.</li>
+      <li>Open the downloaded APK. If Android asks, open <strong>Settings</strong> and enable <strong>Allow from this source</strong> for the browser or file manager you used.</li>
+      <li>Return to the installer, tap <strong>Install</strong>, then open LineupSync and sign in or create an account. You can turn off <strong>Allow from this source</strong> afterward.</li>
+    </ol>
+    <p><strong>Updating:</strong> Return here for new versions and install the latest APK over your existing website-installed app. Keep LineupSync installed to preserve local settings. Updates from this website are installed manually.</p>
+    <p>If Android reports a conflicting package or signature, contact <a href="mailto:support@lineupsync.app">support</a> before uninstalling. A Google Play installation may use a different signing key.</p>
+    <p><a href="LineupSync-1.5.0-android-32.apk.sha256">SHA-256 download checksum</a></p>
   </div>
 </section>
 
@@ -453,7 +482,7 @@
       </div>
       <div class="tcard">
         <h4><span class="ti">●</span> Built for the road ahead</h4>
-        <p>Calendar integration for rehearsals, multi-instrument profiles, and tablet-responsive layouts. Designed for iPhone and iPad first.</p>
+        <p>Calendar integration for rehearsals, multi-instrument profiles, and tablet-responsive layouts. Available on iPhone and Android.</p>
       </div>
     </div>
   </div>
@@ -478,7 +507,9 @@
           </g>
         </svg>
       </a>
+        <a class="android-download" href="https://expo.dev/artifacts/eas/hzo9E75S9cpS6Kqnm5xclp3T-AYYyvZBnaG5IrHrsbI.apk"><span aria-hidden="true">↓</span> Download for Android <small>v1.5.0 · APK</small></a>
     </div>
+    <p class="android-help"><a href="#android-install">Android installation instructions</a></p>
   </div>
 </section>
 
