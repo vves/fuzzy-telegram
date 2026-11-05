@@ -1,0 +1,2 @@
+"use strict";
+window.LINEUPSYNC_TURNSTILE_SITE_KEY = "0x4AAAAAAF1huxCdeFZFRCoM";
