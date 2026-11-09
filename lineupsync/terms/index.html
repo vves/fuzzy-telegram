@@ -127,6 +127,33 @@
 .panel a { color: var(--indigo-600); overflow-wrap: anywhere; }
 .nav-inner { min-height: 64px; height: auto; padding-block: 14px; flex-wrap: wrap; }
 @media print { .site-nav, .quick-nav, footer, .summary { display: none; } .hero, main.content { padding: 16px 0; } .panel { box-shadow: none; break-inside: auto; } }
+
+/* Compact legal-document typography. */
+body { font-size: 14px; line-height: 1.6; }
+:root { --maxw: 900px; }
+.hero { padding: 28px 0 24px; }
+.hero-grid { gap: 24px; }
+.eyebrow { font-size: 11px; }
+h1 { margin-top: 8px; font-size: clamp(26px, 3vw, 32px); }
+.lead { margin-top: 12px; font-size: 14px; }
+.meta { margin-top: 16px; gap: 8px; }
+.chip { padding: 4px 9px; font-size: 11px; }
+.summary { gap: 8px; }
+.summary-card { padding: 12px; border-radius: 10px; box-shadow: none; }
+.summary-card strong { font-size: 13px; }
+.summary-card p { font-size: 12px; }
+.quick-nav .wrap { padding-block: 8px; gap: 4px; }
+.quick-nav a { padding: 5px 9px; font-size: 12px; }
+main.content { padding: 24px 0 40px; }
+.policy-grid { gap: 12px; }
+.panel { padding: 18px 20px; border-radius: 10px; box-shadow: none; }
+.panel h2 { margin-bottom: 10px; font-size: 18px; line-height: 1.3; }
+.panel p + p { margin-top: 10px; }
+.panel ul { margin-top: 10px; }
+.panel li + li { margin-top: 5px; }
+footer { padding: 24px 0; font-size: 12px; }
+@media (max-width: 800px) { .hero { padding-top: 24px; } }
+@media (max-width: 520px) { .panel { padding: 16px; } }
 </style></head><body>
 <header class="site-nav"><div class="wrap nav-inner"><a class="brand" href="../"><img src="../icon.png" alt="" />LineupSync</a><a class="back-link" href="../">Back to LineupSync</a></div></header>
 <section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Terms of Use</div><h1>Using <span class="gradient-text">LineupSync.</span></h1><p class="lead">Terms for the LineupSync app and related services, operated by Cello Hill, LLC.</p><div class="meta"><span class="chip">Last updated: November 9, 2026</span><span class="chip">Ages 18 and over</span></div></div><aside class="summary" aria-label="Terms highlights"><div class="summary-card"><strong>Free today</strong><p>Future subscriptions require separate pricing disclosures and your express agreement.</p></div><div class="summary-card"><strong>Your content stays yours</strong><p>We use it to provide and support the Service.</p></div><div class="summary-card"><strong>Your legal rights remain</strong><p>Mandatory consumer protections continue to apply.</p></div></aside></div></section>
