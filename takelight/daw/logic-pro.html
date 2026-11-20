@@ -1,39 +1,67 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>TakeLight Setup Guide | Logic Pro</title>
-		<meta name="description" content="Logic Pro setup guide placeholder for TakeLight." />
-		<link rel="stylesheet" href="../styles.css" />
-	</head>
-	<body class="takelight-guide-detail">
-		<div class="container">
-			<header class="topbar">
-				<a class="brand" href="../index.html">TakeLight<small>by Cello Hill</small></a>
-				<div class="pill">Logic Pro Setup</div>
-			</header>
-			<main>
-				<section class="panel guide-panel">
-					<h1>Logic Pro Setup Guide</h1>
-					<p class="muted">This is a placeholder page for the Logic Pro setup walkthrough.</p>
-					<ol>
-						<li>Open Logic Pro and your target project.</li>
-						<li>Enable and route MIDI/control data for TakeLight status detection.</li>
-						<li>Test record-arm and recording transitions to confirm light behavior.</li>
-					</ol>
-					<p><a class="btn btn-secondary" href="./index.html">Back to all setup guides</a></p>
-				</section>
-			</main>
-			<footer>
-				<div>(c) <span id="year"></span> Cello Hill. TakeLight.</div>
-			</footer>
-		</div>
-		<script>
-			const yearEl = document.getElementById("year");
-			if (yearEl) {
-				yearEl.textContent = String(new Date().getFullYear());
-			}
-		</script>
-	</body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TakeLight Setup Guide | Logic Pro</title>
+  <meta name="description" content="Set up TakeLight 1.1 with Apple’s Recording Light profile in Logic Pro, including exact ports and MIDI values." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="takelight-guide-detail">
+  <div class="container">
+    <header class="topbar">
+      <a class="brand" href="../index.html">TakeLight<small>by Cello Hill</small></a>
+      <div class="pill">Logic Pro Setup</div>
+    </header>
+    <main>
+<article class="panel guide-panel">
+<h1>Connect TakeLight to Logic Pro</h1>
+<p class="guide-intro">Use Apple’s built-in Recording Light profile to send record-ready and recording status to your Hue lights.</p>
+<p class="guide-meta">TakeLight 1.1.0+ · Verified with Logic Pro 12.3.1 and two Hue lights, November 20, 2026.</p>
+<nav class="guide-nav" aria-label="On this page"><a href="#prepare">Prepare</a><a href="#connect">Connect Logic</a><a href="#test">Test the lights</a><a href="#help">Troubleshoot</a></nav>
+<section id="prepare"><h2>1. Prepare TakeLight and Hue</h2><p>Install TakeLight 1.1.0 or later on your Mac and launch it before opening your DAW. A Philips Hue Bridge and compatible lights must be on the same local network. Hue automation requires an active trial or Lifetime Hue Unlock.</p>
+<p>In TakeLight, use <strong>Hue → Discovered Bridges</strong> to find your bridge, press its physical link button when prompted, then use <strong>Hue → Select Lights</strong>. If your trial has ended, choose <strong>Unlock TakeLight…</strong> first; use <strong>Restore Purchases</strong> for an existing purchase.</p>
+<p>In TakeLight’s menu, choose <strong>DAW Connection → Logic Pro (Recording Light)</strong>. You can also choose this at first launch. TakeLight saves your choice across restarts.</p>
+<div class="guide-note">Logic mode creates <code>TakeLight In</code> only. A missing <code>TakeLight Out</code> port is expected in this mode. No custom control-surface script is needed.</div></section>
+<section id="connect"><h2>2. Add Apple’s Recording Light profile</h2>
+<ol><li>Open <strong>Logic Pro → Control Surfaces → Setup</strong>.</li>
+<li>Choose <strong>New → Install…</strong>, find manufacturer <strong>(other)</strong> and model <strong>Recording Light</strong>, and click <strong>Add</strong>.</li>
+<li>Select the Recording Light device in the Setup window and enter the settings below.</li></ol>
+<table class="setup-table"><caption>Logic Recording Light settings</caption><thead><tr><th scope="col">Setting</th><th scope="col">Value</th></tr></thead><tbody>
+<tr><th scope="row">Output Port</th><td><code>TakeLight In</code></td></tr>
+<tr><th scope="row">Input Port</th><td><code>Logic Pro Virtual In</code></td></tr>
+<tr><th scope="row">MIDI Status</th><td>Note On</td></tr>
+<tr><th scope="row">MIDI Channel</th><td>1</td></tr>
+<tr><th scope="row">Data 1: Any Record Ready LED</th><td>0</td></tr>
+<tr><th scope="row">Data 1: Recording</th><td>95 (decimal)</td></tr>
+<tr><th scope="row">Data 2: On Value</th><td>127</td></tr>
+</tbody></table>
+<p>Leave <strong>New → Automatic Installation</strong> enabled if you use it for other controllers. TakeLight’s Logic mode does not announce or answer as Mackie Control.</p>
+<p>If you previously added a Mackie Control or experimental TakeLight profile, remove that old TakeLight-related registration or route its output away from <code>TakeLight In</code>. Keep one Recording Light profile driving TakeLight; preserve your unrelated control surfaces.</p></section>
+<section id="test"><h2>3. Test arm, disarm, record, and stop</h2><ol>
+  <li>Start stopped and disarmed. Your lights should show their normal lighting.</li>
+  <li>Record-enable an audio track. The selected lights turn <strong>blue</strong>.</li>
+  <li>Disarm the track. Normal lighting returns after a short settling delay.</li>
+  <li>Arm the track again and start recording. After any count-in, the lights turn <strong>red</strong>.</li>
+  <li>Stop recording. If the track remains armed, the lights return to <strong>blue</strong>.</li>
+  <li>Disarm the track to return to normal lighting.</li>
+</ol>
+<p>Also try pressing Record directly with one disarmed audio track. Once Logic starts recording, the lights should turn red. Logic may automatically disarm the track on stop, in which case normal lighting returns.</p></section>
+<section id="help"><h2>If the lights do not respond</h2><ul>
+<li><strong>No TakeLight In port:</strong> launch TakeLight, confirm Logic mode, then reopen Logic’s Setup window and reselect the port.</li>
+<li><strong>Hue menus are disabled:</strong> check trial/unlock access, then restore or unlock from TakeLight’s menu.</li>
+<li><strong>Blue while you expect red:</strong> wait through the count-in, confirm Logic is actually recording, and check that Data 1: Recording is <strong>95</strong>.</li>
+<li><strong>Unexpected changes:</strong> check for an older Mackie/TakeLight registration using the same output, and run only one copy of TakeLight.</li>
+<li><strong>Moving to LUNA or another MCU DAW:</strong> select <strong>Other DAWs (MCU)</strong> in TakeLight. Switch back to Logic mode before reopening Logic if you want to avoid automatic Mackie discovery.</li>
+</ul></section>
+<p class="guide-meta">Apple reference: <a href="https://support.apple.com/en-gb/guide/logicpro-css/ctls73d03d25/mac" target="_blank" rel="noopener noreferrer">Recording Light parameters</a>.</p>
+<p class="guide-back"><a class="btn btn-secondary" href="./index.html">All setup guides</a> <a class="btn btn-secondary" href="https://tally.so/r/Y59Vj5" target="_blank" rel="noopener noreferrer">Get help</a></p></article>
+    </main>
+    <footer><div>(c) <span id="year"></span> Cello Hill. TakeLight.</div></footer>
+  </div>
+  <script>
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  </script>
+</body>
 </html>

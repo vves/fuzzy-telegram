@@ -595,3 +595,31 @@ body.takelight-guide-detail .guide-panel ol {
 		width: 100%;
 	}
 }
+
+/* TakeLight 1.1 DAW installation guides. */
+body.takelight-guides .setup-overview {
+  padding: 1.2rem;
+  margin-bottom: 1.4rem;
+}
+body.takelight-guides .setup-overview h2 { margin-top: 0; }
+body.takelight-guide-detail .guide-intro { font-size: 1.1rem; }
+body.takelight-guide-detail .guide-meta { font-size: 0.88rem; color: var(--muted); }
+body.takelight-guide-detail .guide-nav {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1rem;
+  padding: 0.8rem 0; border-bottom: 1px solid var(--line);
+}
+body.takelight-guide-detail .guide-panel h2 { margin: 1.8rem 0 0.65rem; font-size: 1.35rem; }
+body.takelight-guide-detail .guide-panel li { margin-bottom: 0.6rem; }
+body.takelight-guide-detail .guide-note {
+  padding: 0.85rem 1rem; margin: 1rem 0; border-left: 4px solid var(--brand);
+  background: var(--surface-strong); border-radius: 8px; color: var(--muted);
+}
+body.takelight-guide-detail code { font-size: 0.94em; overflow-wrap: anywhere; }
+body.takelight-guide-detail .setup-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+body.takelight-guide-detail .setup-table caption { text-align: left; font-weight: 700; padding-bottom: 0.6rem; }
+body.takelight-guide-detail .setup-table th,
+body.takelight-guide-detail .setup-table td { text-align: left; padding: 0.7rem; border: 1px solid var(--line); }
+body.takelight-guide-detail .setup-table thead { background: var(--surface-strong); }
+body.takelight-guide-detail .setup-table tbody th { width: 52%; font-weight: 500; }
+body.takelight-guide-detail .guide-back { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.7rem; }
+body.takelight-guide-detail a:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }

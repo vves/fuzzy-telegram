@@ -1,39 +1,63 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>TakeLight Setup Guide | LUNA</title>
-		<meta name="description" content="LUNA setup guide placeholder for TakeLight." />
-		<link rel="stylesheet" href="../styles.css" />
-	</head>
-	<body class="takelight-guide-detail">
-		<div class="container">
-			<header class="topbar">
-				<a class="brand" href="../index.html">TakeLight<small>by Cello Hill</small></a>
-				<div class="pill">LUNA Setup</div>
-			</header>
-			<main>
-				<section class="panel guide-panel">
-					<h1>LUNA Setup Guide</h1>
-					<p class="muted">This is a placeholder page for the LUNA setup walkthrough.</p>
-					<ol>
-						<li>Launch LUNA and open your session.</li>
-						<li>Configure MIDI routing for TakeLight status signals.</li>
-						<li>Arm and record to verify Hue status changes in TakeLight.</li>
-					</ol>
-					<p><a class="btn btn-secondary" href="./index.html">Back to all setup guides</a></p>
-				</section>
-			</main>
-			<footer>
-				<div>(c) <span id="year"></span> Cello Hill. TakeLight.</div>
-			</footer>
-		</div>
-		<script>
-			const yearEl = document.getElementById("year");
-			if (yearEl) {
-				yearEl.textContent = String(new Date().getFullYear());
-			}
-		</script>
-	</body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TakeLight Setup Guide | LUNA</title>
+  <meta name="description" content="Connect TakeLight to LUNA using MCU mode, exact MIDI ports, and a verified Hue arm and recording workflow." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="takelight-guide-detail">
+  <div class="container">
+    <header class="topbar">
+      <a class="brand" href="../index.html">TakeLight<small>by Cello Hill</small></a>
+      <div class="pill">LUNA Setup</div>
+    </header>
+    <main>
+<article class="panel guide-panel">
+<h1>Connect TakeLight to LUNA</h1>
+<p class="guide-intro">Send LUNA’s Mackie Control feedback to TakeLight to show record-ready and recording status on your Hue lights.</p>
+<p class="guide-meta">TakeLight 1.1.0+ · Arm, disarm, record, and stop verified with LUNA 2.0.4.4457 and two Hue lights, November 20, 2026.</p>
+<nav class="guide-nav" aria-label="On this page"><a href="#prepare">Prepare</a><a href="#connect">Connect LUNA</a><a href="#test">Test the lights</a><a href="#help">Troubleshoot</a></nav>
+<section id="prepare"><h2>1. Prepare TakeLight and Hue</h2><p>Install TakeLight 1.1.0 or later on your Mac and launch it before opening your DAW. A Philips Hue Bridge and compatible lights must be on the same local network. Hue automation requires an active trial or Lifetime Hue Unlock.</p>
+<p>In TakeLight, use <strong>Hue → Discovered Bridges</strong> to find your bridge, press its physical link button when prompted, then use <strong>Hue → Select Lights</strong>. If your trial has ended, choose <strong>Unlock TakeLight…</strong> first; use <strong>Restore Purchases</strong> for an existing purchase.</p>
+<p>In TakeLight’s menu, choose <strong>DAW Connection → Other DAWs (MCU)</strong>. This enables both MIDI ports and the full Mackie Control connection. The choice is saved across restarts.</p>
+<div class="guide-note">MCU mode can be discovered by Logic if Logic is also running. Close Logic during this setup to keep the test isolated; choose Logic mode in TakeLight before returning to Logic.</div></section>
+<section id="connect"><h2>2. Enable TakeLight in LUNA</h2><ol>
+<li>Open LUNA’s sidebar and choose <strong>Settings → Controllers</strong>. Some versions call the settings window <strong>Preferences</strong>.</li>
+<li>In an unused <strong>MIDI Control Surfaces</strong> row, choose the ports below.</li>
+<li>Enable the row’s <strong>On</strong> checkbox. Leave <strong>Focus Module</strong> and <strong>Extender</strong> unchecked for this basic setup.</li>
+<li>Open a session and create or select an audio track.</li></ol>
+<table class="setup-table"><caption>LUNA controller routing</caption><thead><tr><th scope="col">LUNA setting</th><th scope="col">Value</th></tr></thead><tbody>
+<tr><th scope="row">Input Device</th><td><code>TakeLight Out</code></td></tr>
+<tr><th scope="row">Output Device</th><td><code>TakeLight In</code></td></tr>
+<tr><th scope="row">On</th><td>Enabled</td></tr>
+<tr><th scope="row">Focus Module / Extender</th><td>Unchecked</td></tr></tbody></table>
+<p>Port names are from TakeLight’s perspective: LUNA sends status <em>to</em> TakeLight In and receives replies <em>from</em> TakeLight Out.</p></section>
+<section id="test"><h2>3. Test arm, disarm, record, and stop</h2><ol>
+  <li>Start stopped and disarmed. Your lights should show their normal lighting.</li>
+  <li>Record-enable an audio track. The selected lights turn <strong>blue</strong>.</li>
+  <li>Disarm the track. Normal lighting returns after a short settling delay.</li>
+  <li>Arm the track again and start recording. After any count-in, the lights turn <strong>red</strong>.</li>
+  <li>Stop recording. If the track remains armed, the lights return to <strong>blue</strong>.</li>
+  <li>Disarm the track to return to normal lighting.</li>
+</ol>
+<p>Use LUNA’s transport Record button and allow any count-in to finish. The light indicates recording status, not whether an audio waveform is loud or visible.</p></section>
+<section id="help"><h2>If the lights do not respond</h2><ul>
+<li><strong>TakeLight Out is missing:</strong> confirm <strong>Other DAWs (MCU)</strong> is selected. Logic mode provides no output port.</li>
+<li><strong>No status changes:</strong> verify the controller row is On, both port directions match the table, and the track is record-enabled.</li>
+<li><strong>Only some tracks trigger blue:</strong> MCU feedback follows the controller’s current track bank. Start with one visible audio track in the first bank.</li>
+<li><strong>Ports changed after a restart or mode switch:</strong> reselect them in LUNA’s Controllers settings.</li>
+<li><strong>Hue menus are disabled:</strong> unlock or restore access in TakeLight before pairing and testing.</li>
+<li><strong>Unexpected changes:</strong> close other DAWs that target TakeLight and run one copy of TakeLight.</li></ul></section>
+<p class="guide-meta">Universal Audio reference: <a href="https://help.uaudio.com/hc/en-us/articles/4406777753236-LUNA-Control-Surface-Compatibility-Setup" target="_blank" rel="noopener noreferrer">LUNA control surface setup</a>.</p>
+<p class="guide-back"><a class="btn btn-secondary" href="./index.html">All setup guides</a> <a class="btn btn-secondary" href="https://tally.so/r/Y59Vj5" target="_blank" rel="noopener noreferrer">Get help</a></p></article>
+    </main>
+    <footer><div>(c) <span id="year"></span> Cello Hill. TakeLight.</div></footer>
+  </div>
+  <script>
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  </script>
+</body>
 </html>
