@@ -21,14 +21,14 @@
 <nav class="guide-nav" aria-label="On this page"><a href="#prepare">Prepare</a><a href="#connect">Connect Logic</a><a href="#test">Test the lights</a><a href="#help">Troubleshoot</a></nav>
 <section id="prepare"><h2>1. Prepare TakeLight and Hue</h2><p>Install TakeLight 1.1.0 or later on your Mac and launch it before opening your DAW. A Philips Hue Bridge and compatible lights must be on the same local network. Hue automation requires an active trial or Lifetime Hue Unlock.</p>
 <p>In TakeLight, use <strong>Hue → Discovered Bridges</strong> to find your bridge, press its physical link button when prompted, then use <strong>Hue → Select Lights</strong>. If your trial has ended, choose <strong>Unlock TakeLight…</strong> first; use <strong>Restore Purchases</strong> for an existing purchase.</p>
-<p>In TakeLight’s menu, choose <strong>DAW Connection → Logic Pro (Recording Light)</strong>. You can also choose this at first launch. TakeLight saves your choice across restarts.</p>
-<div class="guide-note">Logic mode creates <code>TakeLight In</code> only. A missing <code>TakeLight Out</code> port is expected in this mode. No custom control-surface script is needed.</div></section>
+<p>In updated builds, choose <strong>DAW Connection → Automatic</strong>, then launch Logic Pro. TakeLight should show <strong>Automatic — Logic Pro</strong>. Alternatively, choose the <strong>Logic Pro (Recording Light)</strong> manual override; use that option in builds without Automatic. Your preference is saved across restarts.</p>
+<div class="guide-note">Logic mode creates <code>TakeLight State Receiver</code> only. A missing <code>TakeLight Out</code> port is expected in this mode. No custom control-surface script is needed.</div></section>
 <section id="connect"><h2>2. Add Apple’s Recording Light profile</h2>
 <ol><li>Open <strong>Logic Pro → Control Surfaces → Setup</strong>.</li>
 <li>Choose <strong>New → Install…</strong>, find manufacturer <strong>(other)</strong> and model <strong>Recording Light</strong>, and click <strong>Add</strong>.</li>
 <li>Select the Recording Light device in the Setup window and enter the settings below.</li></ol>
 <table class="setup-table"><caption>Logic Recording Light settings</caption><thead><tr><th scope="col">Setting</th><th scope="col">Value</th></tr></thead><tbody>
-<tr><th scope="row">Output Port</th><td><code>TakeLight In</code></td></tr>
+<tr><th scope="row">Output Port</th><td><code>TakeLight State Receiver</code></td></tr>
 <tr><th scope="row">Input Port</th><td><code>Logic Pro Virtual In</code></td></tr>
 <tr><th scope="row">MIDI Status</th><td>Note On</td></tr>
 <tr><th scope="row">MIDI Channel</th><td>1</td></tr>
@@ -36,8 +36,10 @@
 <tr><th scope="row">Data 1: Recording</th><td>95 (decimal)</td></tr>
 <tr><th scope="row">Data 2: On Value</th><td>127</td></tr>
 </tbody></table>
+<p>Logic sends recording status out to <strong>TakeLight State Receiver</strong>. The Input Port is unused by this one-way integration.</p>
+<div class="guide-note">Builds 37 and earlier name this destination <code>TakeLight In</code>. Use that name with those builds. After updating to a build with the new name, reselect <code>TakeLight State Receiver</code> if Logic does not reconnect automatically. MCU ports for other DAWs remain <code>TakeLight In</code> and <code>TakeLight Out</code>.</div>
 <p>Leave <strong>New → Automatic Installation</strong> enabled if you use it for other controllers. TakeLight’s Logic mode does not announce or answer as Mackie Control.</p>
-<p>If you previously added a Mackie Control or experimental TakeLight profile, remove that old TakeLight-related registration or route its output away from <code>TakeLight In</code>. Keep one Recording Light profile driving TakeLight; preserve your unrelated control surfaces.</p></section>
+<p>If you previously added a Mackie Control or experimental TakeLight profile, remove that old TakeLight-related registration or route its output away from <code>TakeLight State Receiver</code>. Keep one Recording Light profile driving TakeLight; preserve your unrelated control surfaces.</p></section>
 <section id="test"><h2>3. Test arm, disarm, record, and stop</h2><ol>
   <li>Start stopped and disarmed. Your lights should show their normal lighting.</li>
   <li>Record-enable an audio track. The selected lights turn <strong>blue</strong>.</li>
@@ -48,11 +50,11 @@
 </ol>
 <p>Also try pressing Record directly with one disarmed audio track. Once Logic starts recording, the lights should turn red. Logic may automatically disarm the track on stop, in which case normal lighting returns.</p></section>
 <section id="help"><h2>If the lights do not respond</h2><ul>
-<li><strong>No TakeLight In port:</strong> launch TakeLight, confirm Logic mode, then reopen Logic’s Setup window and reselect the port.</li>
+<li><strong>No TakeLight State Receiver port:</strong> launch TakeLight, confirm Logic mode, then reopen Logic’s Setup window and reselect the port.</li>
 <li><strong>Hue menus are disabled:</strong> check trial/unlock access, then restore or unlock from TakeLight’s menu.</li>
 <li><strong>Blue while you expect red:</strong> wait through the count-in, confirm Logic is actually recording, and check that Data 1: Recording is <strong>95</strong>.</li>
 <li><strong>Unexpected changes:</strong> check for an older Mackie/TakeLight registration using the same output, and run only one copy of TakeLight.</li>
-<li><strong>Moving to LUNA or another MCU DAW:</strong> select <strong>Other DAWs (MCU)</strong> in TakeLight. Switch back to Logic mode before reopening Logic if you want to avoid automatic Mackie discovery.</li>
+<li><strong>Moving to LUNA or another MCU DAW:</strong> choose <strong>Automatic</strong> and quit Logic before opening the other DAW. TakeLight switches protocols for you. If both are open, Logic takes priority. Manual overrides remain available for builds without Automatic or unrecognized DAWs.</li>
 </ul></section>
 <p class="guide-meta">Apple reference: <a href="https://support.apple.com/en-gb/guide/logicpro-css/ctls73d03d25/mac" target="_blank" rel="noopener noreferrer">Recording Light parameters</a>.</p>
 <p class="guide-back"><a class="btn btn-secondary" href="./index.html">All setup guides</a> <a class="btn btn-secondary" href="https://tally.so/r/Y59Vj5" target="_blank" rel="noopener noreferrer">Get help</a></p></article>

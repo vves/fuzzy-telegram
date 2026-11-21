@@ -21,8 +21,8 @@
 <nav class="guide-nav" aria-label="On this page"><a href="#prepare">Prepare</a><a href="#connect">Connect LUNA</a><a href="#test">Test the lights</a><a href="#help">Troubleshoot</a></nav>
 <section id="prepare"><h2>1. Prepare TakeLight and Hue</h2><p>Install TakeLight 1.1.0 or later on your Mac and launch it before opening your DAW. A Philips Hue Bridge and compatible lights must be on the same local network. Hue automation requires an active trial or Lifetime Hue Unlock.</p>
 <p>In TakeLight, use <strong>Hue → Discovered Bridges</strong> to find your bridge, press its physical link button when prompted, then use <strong>Hue → Select Lights</strong>. If your trial has ended, choose <strong>Unlock TakeLight…</strong> first; use <strong>Restore Purchases</strong> for an existing purchase.</p>
-<p>In TakeLight’s menu, choose <strong>DAW Connection → Other DAWs (MCU)</strong>. This enables both MIDI ports and the full Mackie Control connection. The choice is saved across restarts.</p>
-<div class="guide-note">MCU mode can be discovered by Logic if Logic is also running. Close Logic during this setup to keep the test isolated; choose Logic mode in TakeLight before returning to Logic.</div></section>
+<p>In updated builds, choose <strong>DAW Connection → Automatic</strong> and launch LUNA. TakeLight should show <strong>Automatic — LUNA</strong> and enable both MCU ports. Alternatively, choose the <strong>Other DAWs (MCU)</strong> manual override; use that option in builds without Automatic. The preference is saved across restarts.</p>
+<div class="guide-note">Quit Logic before opening LUNA. In Automatic, Logic takes priority if both DAWs are open; quitting LUNA and opening Logic switches the connection back automatically. A manual MCU override can still be discovered by Logic.</div></section>
 <section id="connect"><h2>2. Enable TakeLight in LUNA</h2><ol>
 <li>Open LUNA’s sidebar and choose <strong>Settings → Controllers</strong>. Some versions call the settings window <strong>Preferences</strong>.</li>
 <li>In an unused <strong>MIDI Control Surfaces</strong> row, choose the ports below.</li>
@@ -44,7 +44,7 @@
 </ol>
 <p>Use LUNA’s transport Record button and allow any count-in to finish. The light indicates recording status, not whether an audio waveform is loud or visible.</p></section>
 <section id="help"><h2>If the lights do not respond</h2><ul>
-<li><strong>TakeLight Out is missing:</strong> confirm <strong>Other DAWs (MCU)</strong> is selected. Logic mode provides no output port.</li>
+<li><strong>TakeLight Out is missing:</strong> confirm Automatic detected LUNA, or choose the <strong>Other DAWs (MCU)</strong> manual override. Logic mode provides no output port.</li>
 <li><strong>No status changes:</strong> verify the controller row is On, both port directions match the table, and the track is record-enabled.</li>
 <li><strong>Only some tracks trigger blue:</strong> MCU feedback follows the controller’s current track bank. Start with one visible audio track in the first bank.</li>
 <li><strong>Ports changed after a restart or mode switch:</strong> reselect them in LUNA’s Controllers settings.</li>
