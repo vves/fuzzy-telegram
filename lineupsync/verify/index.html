@@ -6,19 +6,27 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; style-src 'self'; frame-src https://challenges.cloudflare.com; connect-src https://challenges.cloudflare.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'">
-  <title>Verify — LineupSync</title>
+  <title>One quick check — LineupSync</title>
   <link rel="stylesheet" href="/lineupsync/verify/verify.css">
   <script defer src="/lineupsync/verify/config.js"></script>
   <script defer src="/lineupsync/verify/verify.js"></script>
 </head>
 <body>
   <main>
-    <p class="brand">LineupSync</p>
-    <h1>Quick verification</h1>
+    <header class="brand" aria-label="LineupSync">
+      <img src="/lineupsync/icon.png" width="56" height="56" alt="">
+      <span>LineupSync</span>
+    </header>
+    <section class="verification" aria-labelledby="verification-title">
+    <p class="eyebrow">A safer space to make music</p>
+    <h1 id="verification-title">One quick check</h1>
     <p id="status" role="status" aria-live="polite" aria-atomic="true">Open this page from the LineupSync app to continue.</p>
     <div id="widget" aria-label="Security verification"></div>
     <button id="retry" type="button" hidden>Try again</button>
+    <p class="reassurance">You’ll continue automatically once verification is complete.</p>
     <noscript>Verification needs JavaScript. Return to LineupSync and try again.</noscript>
+    </section>
   </main>
 </body>
 </html>
+
